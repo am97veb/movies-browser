@@ -1,5 +1,6 @@
 import { Poster } from "./styled";
+import MoviePoster from "./Poster.png"
 
 export const PosterHeader = () => (
-    <Poster src={`${process.env.PUBLIC_URL}/Poster.png`} alt="Poster" />
+    <Poster src={MoviePoster} alt="Poster" />
 );
