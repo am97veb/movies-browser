@@ -3,6 +3,8 @@ import { ListSection } from "./ListSection";
 import { PosterHeader } from "./PosterHeader";
 import { MoviePageSection } from "./PosterHeader/styled";
 
+
+
 export const MoviePage = () => (
     <>
         <PosterHeader />
@@ -16,6 +18,7 @@ export const MoviePage = () => (
                 headerContent={"Crew"}
                 sectionContent={""}
             />
+            
         </MoviePageSection>
     </>
 );
