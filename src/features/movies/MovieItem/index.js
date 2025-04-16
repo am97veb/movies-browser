@@ -13,7 +13,7 @@ import {
   Votes
 } from './styled';
 
-const MovieItem = ({ image, title, year, genres, rating, votes }) => {
+ const MovieItem = ({ image, title, year, genres, rating, votes }) => {
   return (
     <MovieCard>
       <MovieImageWrapper>
