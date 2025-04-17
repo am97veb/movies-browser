@@ -8,6 +8,7 @@ export const StyledPersonItem = styled.li`
     max-width: 208px;
     border-radius: 5px;
     padding: 16px 16px 22px;
+    box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
 
     @media (max-width: ${({theme}) => theme.breakpoints.extraSmall}px) {
         width: 136px;
@@ -30,6 +31,8 @@ export const Picture = styled.img`
 
 export const Name = styled.p`
     font-size: 22px;
+    font-weight: 500;
+    line-height: 130%;
     text-align: center;
     margin: 0px;
 
