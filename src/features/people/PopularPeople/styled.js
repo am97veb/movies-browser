@@ -8,6 +8,8 @@ export const Wrapper = styled.section`
 
 export const Header = styled.h1`
     font-size: 36px;
+    font-weight: 600;
+    line-height: 120%;
     margin: 56px 32px 24px;
 
     @media (max-width: ${({theme}) => theme.breakpoints.large}px) {
