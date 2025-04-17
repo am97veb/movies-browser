@@ -5,7 +5,7 @@ export const PersonItem = () => (
     <StyledPersonItem>
         <Picture src={picture} />
         <Name>
-            somethig
+            Json Scott Lee
         </Name>
     </StyledPersonItem>
 )
