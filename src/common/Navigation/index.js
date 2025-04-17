@@ -9,7 +9,7 @@ export const Navigation = () => (
                 </StyledNavLink>
             </li>
             <li>
-                <StyledNavLink to="/movies">
+                <StyledNavLink to="/people">
                     PEOPLE
                 </StyledNavLink>
             </li>
