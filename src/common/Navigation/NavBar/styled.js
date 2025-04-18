@@ -39,12 +39,6 @@ export const Title = styled.p`
     margin: 0 0 0 12px;
 `;
 
-// export const Title = styled.div`
-//     display: flex;
-//     flex: 1;
-//     color: white;
-// `;
-
 export const VideoSVG = styled(Video)`
     width: 40px;
     height: auto;
