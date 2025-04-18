@@ -14,7 +14,7 @@ export const NavigationBar = () => (
                 </StyledNavLink>
             </NavItem>
             <NavItem>
-                <StyledNavLink to="/movies">
+                <StyledNavLink to="/people">
                     PEOPLE
                 </StyledNavLink>
             </NavItem>
