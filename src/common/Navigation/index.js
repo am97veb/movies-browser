@@ -1,18 +1,12 @@
-import { StyledNav, StyledNavLink, NavList } from "./styled";
+import { Search } from "./Search";
+import { NavWrapper, StyledNav } from "./styled";
+import { NavigationBar } from "./NavBar";
 
 export const Navigation = () => (
     <StyledNav>
-        <NavList>
-            <li>
-                <StyledNavLink to="/movie">
-                    MOVIES
-                </StyledNavLink>
-            </li>
-            <li>
-                <StyledNavLink to="/people">
-                    PEOPLE
-                </StyledNavLink>
-            </li>
-        </NavList>
+        <NavWrapper>
+            <NavigationBar />
+            <Search />
+        </NavWrapper>
     </StyledNav>
 );
