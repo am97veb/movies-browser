@@ -1,18 +1,24 @@
+import { useDispatch } from "react-redux";
 import { StyledNav, StyledNavLink, NavList } from "./styled";
+import { showPeople } from "../../features/people/peopleSlice";
 
-export const Navigation = () => (
-    <StyledNav>
-        <NavList>
-            <li>
-                <StyledNavLink to="/movie">
-                    MOVIES
-                </StyledNavLink>
-            </li>
-            <li>
-                <StyledNavLink to="/people">
-                    PEOPLE
-                </StyledNavLink>
-            </li>
-        </NavList>
-    </StyledNav>
-);
+export const Navigation = () => {
+    const dispatch = useDispatch();
+
+    return (
+        <StyledNav>
+            <NavList>
+                <li>
+                    <StyledNavLink to="/movie">
+                        MOVIES
+                    </StyledNavLink>
+                </li>
+                <li>
+                    <StyledNavLink to="/people" onClick={() => dispatch(showPeople())}>
+                        PEOPLE
+                    </StyledNavLink>
+                </li>
+            </NavList>
+        </StyledNav>
+    )
+};
