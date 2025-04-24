@@ -1,19 +1,19 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
 export const StyledNav = styled.nav`
     width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
     background-color: black;
-    display: flex;
-    flex-direction: row;
+    padding: 23px 32px;
+    margin: 0 auto;
 `;
 
-export const NavList = styled.ul`
+export const NavWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    gap: 32px;
-`;
-
-export const StyledNavLink = styled(NavLink)`
-    color: white;
+    justify-content: center;
+    max-width: 1368px ;
+    width: 100%;
 `;
