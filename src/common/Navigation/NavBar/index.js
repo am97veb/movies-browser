@@ -1,8 +1,12 @@
 import { NavList, NavItem, StyledNavLink, BarWrapper, Title, VideoSVG } from "./styled";
+import { useDispatch } from "react-redux";
+import { showPeople } from "../../../features/people/peopleSlice";
 
+export const NavigationBar = () => {
+    const dispatch = useDispatch();
 
-export const NavigationBar = () => (
-    <BarWrapper>
+    return (
+        <BarWrapper>
         <VideoSVG />
         <Title>
             <p>Movies Browser</p>
@@ -14,10 +18,11 @@ export const NavigationBar = () => (
                 </StyledNavLink>
             </NavItem>
             <NavItem>
-                <StyledNavLink to="/people">
+                <StyledNavLink to="/people" onClick={() => dispatch(showPeople())}>
                     PEOPLE
                 </StyledNavLink>
             </NavItem>
         </NavList>
     </BarWrapper>
-);
+    )
+};
