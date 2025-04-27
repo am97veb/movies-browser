@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DescriptionSection = styled.section`
-    max-width: 1368px;
+    /* max-width: 1368px; */
     margin: 32px;
     padding: 40px;
     background-color: white;

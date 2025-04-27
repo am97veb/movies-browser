@@ -2,6 +2,7 @@ import { DescriptionTile } from "./DescriptionTile";
 import { ListSection } from "./ListSection";
 import { PosterHeader } from "./PosterHeader";
 import { MoviePageSection } from "./PosterHeader/styled";
+import { PersonItem } from "../../../common/PersonItem";
 
 
 
@@ -12,11 +13,11 @@ export const MoviePage = () => (
             <DescriptionTile />
             <ListSection
                 headerContent={"Cast"}
-                sectionContent={""}
+                sectionContent={<PersonItem />}
             />
             <ListSection
                 headerContent={"Crew"}
-                sectionContent={""}
+                sectionContent={<PersonItem />}
             />
             
         </MoviePageSection>
