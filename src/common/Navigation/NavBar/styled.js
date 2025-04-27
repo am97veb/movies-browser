@@ -33,7 +33,7 @@ export const BarWrapper = styled.div`
     
 `;
 
-export const Title = styled.p`
+export const Title = styled.div`
     color: white;
     padding: 0;
     margin: 0 0 0 12px;
