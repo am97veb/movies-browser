@@ -12,6 +12,7 @@ const MovieList = ({ movies }) => {
         {movies.map((movie) => (
           <MovieItem
             key={movie.id}
+            id={movie.id}
             image={movie.image}
             title={movie.title}
             year={movie.year}
