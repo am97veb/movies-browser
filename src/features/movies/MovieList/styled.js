@@ -12,7 +12,6 @@ export const MovieListWrapper = styled.section`
 export const MovieListHeading = styled.h2`
   font-size: 36px;
   font-weight: 600;
-  font-family: 'Poppins', sans-serif;
   color: ${({ theme }) => theme.colors.black};
   margin-bottom: 24px;
 `;

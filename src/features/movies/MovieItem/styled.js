@@ -29,7 +29,6 @@ export const MovieImage = styled.img`
 `;
 
 export const MovieTitle = styled.h3`
-  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 22px;
   line-height: 130%;
@@ -39,7 +38,7 @@ export const MovieTitle = styled.h3`
 `;
 
 export const MovieYear = styled.p`
-  font-family: 'Poppins', sans-serif;
+  
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -63,7 +62,7 @@ export const GenreTag = styled.span`
    border-radius: 5px;
    background-color: ${({ theme }) => theme.colors.brightGrey};
    color: ${({ theme }) => theme.colors.black};
-   font-family: 'Poppins', sans-serif;
+   
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
@@ -78,7 +77,7 @@ export const MovieRating = styled.div`
 `;
 
 export const RatingValue = styled.span`
-  font-family: 'Poppins', sans-serif;
+  
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
@@ -93,7 +92,7 @@ export const StarIconStyled = styled(StarIcon)`
 `;
 
 export const Votes = styled.span`
-  font-family: 'Poppins', sans-serif;
+  
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
