@@ -1,25 +1,19 @@
 import React from "react";
 import MovieItem from "../MovieItem";
 import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
+import useGenres from "./Hooks/useGenres";
+import usePopularMovies from "./Hooks/usePopularMovies";
 
+const MovieList = () => {
+  const genresMap = useGenres();
+  const movies = usePopularMovies(genresMap);
 
-
-const MovieList = ({ movies }) => {
   return (
     <MovieListWrapper>
       <MovieListHeading>Popular movies</MovieListHeading>
       <MovieListGrid>
         {movies.map((movie) => (
-          <MovieItem
-            key={movie.id}
-            id={movie.id}
-            image={movie.image}
-            title={movie.title}
-            year={movie.year}
-            genres={movie.genres}
-            rating={movie.rating}
-            votes={movie.votes}
-          />
+          <MovieItem key={movie.id} {...movie} />
         ))}
       </MovieListGrid>
     </MovieListWrapper>
