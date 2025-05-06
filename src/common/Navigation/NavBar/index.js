@@ -10,7 +10,7 @@ export const NavigationBar = () => {
         <BarWrapper>
         <VideoSVG />
         <Title>
-            <p>Movies Browser</p>
+            <div>Movies Browser</div>
         </Title>
         <NavList>
             <NavItem>
