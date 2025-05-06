@@ -13,4 +13,12 @@ export const GlobalStyle = createGlobalStyle`
         background-color: rgba(245, 245, 250, 1);
         font-family: 'Poppins', sans-serif;
     }
+
+    button {
+        cursor: pointer;
+    }
+
+    a:hover {
+        cursor: pointer; 
+    }
 `;
