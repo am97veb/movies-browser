@@ -19,5 +19,5 @@ const moviesSlice = createSlice({
 });
 
 export const {showMovies, fetchDataSuccess, fetchDataError} = moviesSlice.actions;
-export const selectMovies = state => state.movies.movies;
+export const selectMovies = state => state.movies.moviesData;
 export default moviesSlice.reducer;
