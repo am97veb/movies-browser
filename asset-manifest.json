@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.js": "/movies-browser/static/js/main.40e76787.js",
+    "main.js": "/movies-browser/static/js/main.5744ee89.js",
     "static/js/453.4f8818d1.chunk.js": "/movies-browser/static/js/453.4f8818d1.chunk.js",
     "static/media/Poster.png": "/movies-browser/static/media/Poster.4d8326bc753d2b01b560.png",
-    "static/media/movie browser picture.png": "/movies-browser/static/media/movie browser picture.b4ce2370c91a31ff1526.png",
     "static/media/StarIcon.svg": "/movies-browser/static/media/StarIcon.8663155c38d2739a01d98dddbf5d2ae1.svg",
+    "static/media/emptyProfilePath.svg": "/movies-browser/static/media/emptyProfilePath.cf6ada77b63e8e3ff5aa77fd490c7a41.svg",
     "index.html": "/movies-browser/index.html",
     "static/media/Video.svg": "/movies-browser/static/media/Video.8e3f86891628773de8a89316d791aa3c.svg",
+    "static/media/arrow.svg": "/movies-browser/static/media/arrow.95a980d03aa24878b4b68139a4fd2714.svg",
     "static/media/Search.svg": "/movies-browser/static/media/Search.67b8139a58176c2c50a2b1297a869e2b.svg",
-    "main.40e76787.js.map": "/movies-browser/static/js/main.40e76787.js.map",
+    "main.5744ee89.js.map": "/movies-browser/static/js/main.5744ee89.js.map",
     "453.4f8818d1.chunk.js.map": "/movies-browser/static/js/453.4f8818d1.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.40e76787.js"
+    "static/js/main.5744ee89.js"
   ]
 }
