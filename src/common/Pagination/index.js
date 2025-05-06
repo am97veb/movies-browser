@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { StyledPagination, Button, StyledList, Text, Page, LeftArrow, RightArrow, Link } from "./styled";
-import { selectPage, nextPage, previousPage, firstPage, lastPage, selectTotalPages } from "../../features/people/peopleSlice";
+import { StyledPagination, Button, StyledList, Text, Page, LeftArrow, RightArrow, Link, MobileRightArrow, MobileLeftArrow } from "./styled";
+import { selectPage, nextPage, previousPage, firstPage, lastPage, selectTotalPages } from "../../common/Pagination/paginationSlice";
 
 export const Pagination = () => {
    const dispatch = useDispatch();
@@ -12,6 +12,7 @@ export const Pagination = () => {
          <StyledList>
             <Button disabled={page <= 1} >
                <Link onClick={() => page > 1 && dispatch(firstPage())}>
+                  <MobileLeftArrow disabled={page <= 1} />
                   <LeftArrow disabled={page <= 1} />
                   First
                </Link>
@@ -35,6 +36,7 @@ export const Pagination = () => {
                <Link onClick={() => page < totalPages && dispatch(lastPage())}>
                   Last
                   <RightArrow disabled={page >= totalPages} />
+                  <MobileRightArrow disabled={page >= totalPages} />
                </Link>
             </Button>
          </StyledList>
