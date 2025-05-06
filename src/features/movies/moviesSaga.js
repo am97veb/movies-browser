@@ -1,16 +1,26 @@
-import { put, call } from "redux-saga/effects";
+import { put, call, select, takeEvery } from "redux-saga/effects";
 import { fetchApiData } from "../../fetchApiData";
-import { fetchDataError, fetchDataSuccess } from "./moviesSlice";
+import { showMovies, fetchDataError, fetchDataSuccess } from "./moviesSlice";
+import { selectContentType, totalPages, selectPage, contentType } from "../../common/Pagination/paginationSlice";
 
-function* fetchMoviesHandler() {
+export function* fetchMoviesHandler() {
     try {
-        const moviesData = yield call(fetchApiData);
-        yield put(fetchDataSuccess(moviesData));
+        const type = yield select(selectContentType);
+                if (type !== "movies") {
+                    yield put(contentType("movies"));
+                };
+        const page = yield select(selectPage);
+        const sourceApiData = `moviesSource${page}.json`;
+        const movies = yield call(fetchApiData, sourceApiData);
+        yield put(fetchDataSuccess(movies));
+        yield put(totalPages(movies));
+        
     } catch (error) {
-        yield put(fetchDataError);
+        yield put(fetchDataError());
     }
 }
 
 export function* moviesSaga() {
     yield call(fetchMoviesHandler);
+    yield takeEvery(showMovies.type, fetchMoviesHandler)
 }
