@@ -30,14 +30,22 @@ export const Picture = styled.img`
 `;
 
 export const EmptyPoster = styled.div`
-    width: 176px;
-    height: 264px;
+    width: 100%;
+    height: 100%;
+    max-width: 176px;
+    max-height: 264px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     margin-bottom: 12px;
     background-color:rgba(196, 196, 196, 1);
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        width: 120px;
+        height: 178px;
+        margin-bottom: 8px;
+    }
 `;
 
 export const Name = styled.p`
