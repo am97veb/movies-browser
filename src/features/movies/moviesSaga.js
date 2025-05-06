@@ -10,7 +10,7 @@ export function* fetchMoviesHandler() {
                     yield put(contentType("movies"));
                 };
         const page = yield select(selectPage);
-        const sourceApiData = `moviesSource${page}.json`;
+        const sourceApiData = `https://api.themoviedb.org/3/movie/popular?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US&page=${page}`;
         const movies = yield call(fetchApiData, sourceApiData);
         yield put(fetchDataSuccess(movies));
         yield put(totalPages(movies));
