@@ -3,9 +3,11 @@ import picture from "./movie browser picture.png"
 
 export const PersonItem = ({ person }) => (
     <StyledPersonItem>
-        <Picture src={person ? person.image : null}></Picture>
+        <Picture
+            src={person && person.profile_path}>
+        </Picture>
         <Name>
-            Json Scott Lee
+            {person && person.name}
         </Name>
     </StyledPersonItem>
-)
+);
