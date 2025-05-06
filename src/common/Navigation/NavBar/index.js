@@ -14,7 +14,7 @@ export const NavigationBar = () => {
         </Title>
         <NavList>
             <NavItem>
-                <StyledNavLink to="/movie" onClick={() => dispatch(showMovies())}>
+                <StyledNavLink to="/movies" onClick={() => dispatch(showMovies())}>
                     MOVIES
                 </StyledNavLink>
             </NavItem>
