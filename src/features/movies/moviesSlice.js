@@ -3,13 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const moviesSlice = createSlice({
     name: "movies",
     initialState: {
-        movies: [],
+        moviesData: [],
         fetchStatus: "loading",
     },
     reducers: {
-        fetchDataSuccess: (state, {payload: moviesData}) => {
+        showMovies: () => { },
+        fetchDataSuccess: (state, {payload: movies}) => {
             state.fetchStatus = "success";
-            state.movies = moviesData;
+            state.moviesData = movies;
         },
         fetchDataError: (state) => {
             state.fetchStatus = "error";
@@ -17,6 +18,6 @@ const moviesSlice = createSlice({
     },
 });
 
-export const {fetchDataSuccess, fetchDataError} = moviesSlice.actions;
-export const selectMovies = state => state.movies.movies;
+export const {showMovies, fetchDataSuccess, fetchDataError} = moviesSlice.actions;
+export const selectMovies = state => state.movies.moviesData;
 export default moviesSlice.reducer;

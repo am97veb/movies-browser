@@ -1,11 +1,21 @@
-import { StyledPersonItem, Picture, Name } from "./styled";
-import picture from "./movie browser picture.png"
+import { StyledPersonItem, Picture, EmptyPoster, Name } from "./styled";
+import { ReactComponent as EmptyProfilePath } from "./emptyProfilePath.svg"
 
 export const PersonItem = ({ person }) => (
     <StyledPersonItem>
-        <Picture src={person ? person.image : null}></Picture>
+        {person &&
+            (person.profile_path ?
+                <Picture
+                    src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}>
+                </Picture>
+                :
+                <EmptyPoster>
+                    <EmptyProfilePath />
+                </EmptyPoster>
+            )
+        }
         <Name>
-            Json Scott Lee
+            {person && person.name}
         </Name>
     </StyledPersonItem>
-)
+);

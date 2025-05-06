@@ -24,14 +24,9 @@ export const Header = styled.h1`
 export const PeopleList = styled.ul`
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
     gap:24px;
     padding: 0px;
     margin: 0px 32px 56px;
-
-    &:not(:last-child){
-        gap: 24px;
-    }
 
     @media (max-width: ${({theme}) => theme.breakpoints.large}px) {
         grid-template-columns: repeat(5, 1fr);

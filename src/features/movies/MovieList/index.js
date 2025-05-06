@@ -1,6 +1,7 @@
 import React from "react";
 import MovieItem from "../MovieItem";
 import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
+import { Pagination } from "../../../common/Pagination";
 
 
 
@@ -22,6 +23,7 @@ const MovieList = ({ movies }) => {
           />
         ))}
       </MovieListGrid>
+      <Pagination/>
     </MovieListWrapper>
   );
 };

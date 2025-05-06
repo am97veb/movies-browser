@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { PersonItem } from "../../../common/PersonItem/index";
 import { Wrapper, Header, PeopleList } from "./styled";
 import { selectPeople } from "../peopleSlice";
+import { Pagination } from "../../../common/Pagination";
 
 export const PopularPeople = () => {
     const people = useSelector(selectPeople);
@@ -12,12 +13,16 @@ export const PopularPeople = () => {
                 Popular people
             </Header>
             <PeopleList>
-                {people.map(person =>
-                    <PersonItem
-                        person={person}
-                    />
-                )}
+                {people.results &&
+                    people.results.map(person => (
+                        <PersonItem
+                            key={person.id}
+                            person={person}
+                        />
+                    ))
+                }
             </PeopleList>
+            <Pagination/>
         </Wrapper>
     )
 }

@@ -8,9 +8,9 @@ const peopleSlice = createSlice({
     },
     reducers: {
         showPeople: () => { },
-        fetchDataSuccess: (state, { payload: peopleData }) => {
+        fetchDataSuccess: (state, { payload: people }) => {
             state.fetchStatus = "success";
-            state.peopleData = peopleData;
+            state.peopleData = people;
         },
         fetchDataError: (state) => {
             state.fetchStatus = "error";

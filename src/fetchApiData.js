@@ -1,7 +1,6 @@
 import axios from "axios";
-import { sourceApiData } from "./sourceApiData";
 
-export const fetchApiData = async () => {
+export const fetchApiData = async (sourceApiData) => {
     const response = await axios.get(sourceApiData);
     return await response.data;
 }; 
