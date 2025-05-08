@@ -39,4 +39,3 @@ const MovieItem = ({ id, image, title, year, genres, rating, votes }) => {
 };
 
 export default MovieItem;
-
