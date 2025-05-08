@@ -12,7 +12,7 @@ export const useReplaceQueryParameter = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const setQueryParam = ({key, value}) => {
+    const setQueryParam = ({ key, value }) => {
         const searchParams = new URLSearchParams(location.search);
 
         if (value === undefined) {
@@ -24,4 +24,10 @@ export const useReplaceQueryParameter = () => {
         navigate(`${location.pathname}?${searchParams.toString()}`, { replace: true });
     };
     return setQueryParam;
+};
+
+export const usePlaceholder = () => {
+    const location = useLocation();
+    const path = location.pathname.replace(/^\/+/, "");
+    return path;
 };
