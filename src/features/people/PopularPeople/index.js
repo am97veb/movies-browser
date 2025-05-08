@@ -6,7 +6,6 @@ import { Pagination } from "../../../common/Pagination";
 import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
 import { selectSearchResult, selectSearchStatus } from "../personSlice";
-import Loading from "../../../common/Navigation/Search/Loading";
 
 export const PopularPeople = () => {
     const query = useQueryParameters(searchQueryParamName);
