@@ -11,8 +11,6 @@ export function* fetchPersonHandler(action) {
     const apiKey = process.env.REACT_APP_TMDB_API_KEY_PERSON_SEARCH;
 
     try {
-        yield delay(1000);
-
         const query = yield select(selectQuery) || "";
 
         const type = yield select(selectContentType);
@@ -29,10 +27,9 @@ export function* fetchPersonHandler(action) {
             + `&language=en-US`
             + `&page=${page}`;
 
-        console.log(sourceApiData);
         const personSearch = yield call(fetchApiData, sourceApiData);
+        yield delay(1000);
         yield put(fetchDataSuccess(personSearch));
-        console.log(personSearch);
         yield put(totalPages(personSearch));
 
     } catch (error) {

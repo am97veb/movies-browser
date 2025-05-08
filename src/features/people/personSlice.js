@@ -17,7 +17,7 @@ const personSlice = createSlice({
             state.searchResult = personSearch;
             console.log(state.searchResult);
         },
-        fetchDataError: (state, action) => {
+        fetchDataError: (state) => {
             state.searchStatus = "error";
         },
     },
