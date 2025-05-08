@@ -3,9 +3,18 @@ import { PersonItem } from "../../../common/PersonItem/index";
 import { Wrapper, Header, PeopleList } from "./styled";
 import { selectPeople } from "../peopleSlice";
 import { Pagination } from "../../../common/Pagination";
+import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
+import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
+import { selectSearchResult, selectSearchStatus } from "../personSlice";
+import Loading from "../../../common/Navigation/Search/Loading";
 
 export const PopularPeople = () => {
-    const people = useSelector(selectPeople);
+    const query = useQueryParameters(searchQueryParamName);
+    const searchStatus = useSelector(selectSearchStatus);
+    const people = useSelector(state =>
+        query?.trim()
+            ? selectSearchResult(state)
+            : selectPeople(state));
 
     return (
         <Wrapper>
@@ -22,7 +31,7 @@ export const PopularPeople = () => {
                     ))
                 }
             </PeopleList>
-            <Pagination/>
+            <Pagination />
         </Wrapper>
     )
 }
