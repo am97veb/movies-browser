@@ -1,21 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectPage } from "../../../common/Pagination/paginationSlice";
 import { selectMovies, selectGenres } from "../moviesSlice";
 import MovieItem from "../MovieItem";
 import { Pagination } from "../../../common/Pagination";
 import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
 
-const MOVIES_PER_PAGE = 8;
-
 const MovieList = () => {
-  const page = useSelector(selectPage);
   const data = useSelector(selectMovies);
   const genresList = useSelector(selectGenres);
 
-  const allMovies = data?.results || [];
-  const startIndex = (page - 1) * MOVIES_PER_PAGE;
-  const visibleMovies = allMovies.slice(startIndex, startIndex + MOVIES_PER_PAGE);
+  const allMovies = data || [];
 
   const mapGenres = (genre_ids) => {
     return genre_ids.map((id) => {
@@ -28,7 +22,7 @@ const MovieList = () => {
     <MovieListWrapper>
       <MovieListHeading>Popular Movies</MovieListHeading>
       <MovieListGrid>
-        {visibleMovies.map((movie) => (
+        {allMovies.map((movie) => (
           <MovieItem
             key={movie.id}
             id={movie.id}

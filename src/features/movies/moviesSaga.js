@@ -16,9 +16,7 @@ export function* fetchMoviesHandler() {
 
     yield put(fetchDataSuccess(movies));
     yield put(totalPages(movies));
-    
-    yield call(fetchGenresHandler); 
-
+    yield call(fetchGenresHandler);
   } catch (error) {
     yield put(fetchDataError());
   }
@@ -35,6 +33,9 @@ export function* fetchGenresHandler() {
 }
 
 export function* moviesSaga() {
+  
+  yield call(fetchMoviesHandler);
+
+  
   yield takeEvery(showMovies.type, fetchMoviesHandler);
 }
-
