@@ -1,6 +1,6 @@
 import { takeEvery, takeLatest, delay, select, } from "redux-saga/effects";
 import { fetchApiData } from "../../fetchApiData";
-import { newSearch, fetchDataSuccess, fetchDataError, selectQuery } from "./personSlice";
+import { newSearch, fetchDataSuccess, fetchDataError, selectQuery } from "./searchSlice";
 import { call, put } from "redux-saga/effects";
 import { totalPages } from "../../common/Pagination/paginationSlice";
 import { selectContentType, contentType, selectPage } from "../../common/Pagination/paginationSlice";
@@ -38,13 +38,13 @@ export function* fetchPersonHandler(action) {
 }
 
 
-export function* personSaga() {
+export function* searchSaga() {
     yield takeLatest(
         newSearch.type, fetchPersonHandler);
     yield takeEvery(
         [
             firstPage.type,
-            nextPage.type,
+            // nextPage.type,
             previousPage.type,
             lastPage.type,
         ],

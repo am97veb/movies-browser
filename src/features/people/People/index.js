@@ -3,7 +3,7 @@ import Loading from "../../../common/Navigation/Search/Loading";
 import Error from "../../../common/Navigation/Search/Error";
 import { PopularPeople } from "../PopularPeople";
 import { selectPeopleStatus } from "../peopleSlice";
-import { selectQuery, selectSearchResult, selectSearchStatus } from "../personSlice";
+import { selectQuery, selectSearchResult, selectSearchStatus } from "../searchSlice";
 import NoResult from "../../../common/Navigation/Search/NoResult";
 
 export const People = () => {

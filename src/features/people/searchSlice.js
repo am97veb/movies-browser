@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const personSlice = createSlice({
-    name: "person",
+const searchSlice = createSlice({
+    name: "search",
     initialState: {
         searchResult: {},
         searchStatus: "idle",
@@ -23,9 +23,9 @@ const personSlice = createSlice({
     },
 });
 
-export const { newSearch, fetchDataSuccess, fetchDataError } = personSlice.actions;
-export const selectSearchResult = state => state.person.searchResult;
-export const selectSearchStatus = state => state.person.searchStatus;
-export const selectQuery = state => state.person.query;
+export const { newSearch, fetchDataSuccess, fetchDataError } = searchSlice.actions;
+export const selectSearchResult = state => state.search.searchResult;
+export const selectSearchStatus = state => state.search.searchStatus;
+export const selectQuery = state => state.search.query;
 
-export default personSlice.reducer;
+export default searchSlice.reducer;
