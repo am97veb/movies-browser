@@ -1,4 +1,4 @@
-import { put, call, select, takeEvery, all } from "redux-saga/effects";
+import { put, call, select, takeEvery } from "redux-saga/effects";
 import { fetchApiData } from "../../fetchApiData";
 import { showMovies, fetchDataError, fetchDataSuccess, setGenres } from "./moviesSlice";
 import { selectContentType, totalPages, selectPage, contentType } from "../../common/Pagination/paginationSlice";
@@ -33,9 +33,9 @@ export function* fetchGenresHandler() {
 }
 
 export function* moviesSaga() {
-  yield all([
-    call(fetchMoviesHandler),             
-    takeEvery(showMovies.type, fetchMoviesHandler),
-  ]);
-}
+  
+  yield call(fetchMoviesHandler);
 
+  
+  yield takeEvery(showMovies.type, fetchMoviesHandler);
+}
