@@ -3,8 +3,9 @@ import { nanoid } from "@reduxjs/toolkit";
 import { LoupeSVG } from "./styled";
 import { usePlaceholder, useQueryParameters, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
-import { newSearch } from "../../../features/people/personSlice";
+import { newSearch } from "../../../features/people/searchSlice";
 import { useDispatch } from "react-redux";
+import { showPeople } from "../../../features/people/peopleSlice";
 
 export const Search = () => {
     const dispatch = useDispatch();
@@ -18,7 +19,12 @@ export const Search = () => {
             key: searchQueryParamName,
             value: target.value.trim() !== "" ? target.value : undefined,
         });
-        dispatch(newSearch(target.value.trim()))
+
+        if (target.value.trim() !== "") {
+            dispatch(newSearch(target.value.trim()))
+        } else {
+            dispatch(showPeople());
+        };
     }
 
     return (
