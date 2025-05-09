@@ -4,6 +4,7 @@ import moviesReducer from "../features/movies/moviesSlice";
 import paginationReducer from "../common/Pagination/paginationSlice";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./saga";
+import searchReducer from "../features/people/searchSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,10 +13,10 @@ export default configureStore({
         people: peopleReducer,
         movies: moviesReducer,
         pagination: paginationReducer,
+        search: searchReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(sagaMiddleware),
-
 });
 
 sagaMiddleware.run(rootSaga);
