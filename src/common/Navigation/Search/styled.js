@@ -6,6 +6,10 @@ export const SearchContainer = styled.div`
     display: flex;
     flex: 1;
     justify-content: right;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+        justify-content: center;
+        }
 `;
 
 export const SearchWrapper = styled.div`
@@ -18,6 +22,10 @@ export const SearchWrapper = styled.div`
     background-color: white;
     border: 1px;
     border-radius: 33px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+        max-width: 100%;
+        }
 `;
 
 export const SearchInput = styled.input`
