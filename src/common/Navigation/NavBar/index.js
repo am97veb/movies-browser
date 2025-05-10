@@ -1,18 +1,16 @@
-import { NavList, NavItem, StyledNavLink, BarWrapper, Title, VideoSVG } from "./styled";
+import { NavList, NavItem, StyledNavLink, BarWrapper} from "./styled";
 import { useDispatch } from "react-redux";
 import { showPeople } from "../../../features/people/peopleSlice";
 import { showMovies } from "../../../features/movies/moviesSlice";
 import { firstPage } from "../../Pagination/paginationSlice";
+import { Logo } from "./Logo";
 
 export const NavigationBar = () => {
     const dispatch = useDispatch();
 
     return (
         <BarWrapper>
-            <VideoSVG />
-            <Title>
-                <div>Movies Browser</div>
-            </Title>
+            <Logo title={"Movies Browser"} />
             <NavList>
                 <NavItem>
                     <StyledNavLink to="/movies"

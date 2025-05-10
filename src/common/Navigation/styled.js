@@ -16,4 +16,15 @@ export const NavWrapper = styled.div`
     justify-content: center;
     max-width: 1368px ;
     width: 100%;
+    gap: 100px;
+
+     @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+        flex-direction: column;
+        gap: 24px;
+        }
+
 `;
+
+
+
+
