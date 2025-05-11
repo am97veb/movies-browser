@@ -28,7 +28,9 @@ export function* fetchPersonHandler(action) {
             + `&page=${page}`;
 
         const personSearch = yield call(fetchApiData, sourceApiData);
-        yield delay(1000);
+        if (page === 1) {
+            yield delay(1000);
+        }
         yield put(fetchDataSuccess(personSearch));
         yield put(totalPages(personSearch));
 
