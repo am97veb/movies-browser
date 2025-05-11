@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import {ReactComponent as Video} from "./Video.svg"
+import { ReactComponent as Video } from "./Video.svg"
 
 export const NavList = styled.ul`
     display: flex;
@@ -10,6 +10,10 @@ export const NavList = styled.ul`
     flex: 1;
     padding: 0;
     margin: 0;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+        gap: 12px;
+        }
 `;
 
 export const NavItem = styled.li`
@@ -21,9 +25,16 @@ export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
-    border: 2px solid white;
-    border-radius: 24px;
     padding: 13.5px 24px;
+
+    &.hover {
+        cursor: pointer;
+    }
+
+    &.active {
+        border: 2px solid white;
+        border-radius: 24px;
+    }
 `;
 
 export const BarWrapper = styled.div`
