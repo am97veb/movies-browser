@@ -2,7 +2,6 @@ import { NavList, NavItem, StyledNavLink, BarWrapper} from "./styled";
 import { useDispatch } from "react-redux";
 import { showPeople } from "../../../features/people/peopleSlice";
 import { showMovies } from "../../../features/movies/moviesSlice";
-import { firstPage } from "../../Pagination/paginationSlice";
 import { Logo } from "./Logo";
 
 export const NavigationBar = () => {
@@ -24,7 +23,6 @@ export const NavigationBar = () => {
                 <NavItem>
                     <StyledNavLink to="/people"
                         onClick={() => {
-                            dispatch(firstPage());
                             dispatch(showPeople());
                         }}
                     >
