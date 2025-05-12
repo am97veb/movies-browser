@@ -13,7 +13,6 @@ export function* fetchPeopleHandler() {
         const sourceApiData = `https://api.themoviedb.org/3/person/popular?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US&page=${page}`;
         const people = yield call(fetchApiData, sourceApiData);
         yield put(fetchDataSuccess(people));
-        console.log(people);
         yield put(totalPages(people));
     } catch (error) {
         yield put(fetchDataError());

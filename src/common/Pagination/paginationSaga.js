@@ -3,7 +3,7 @@ import { nextPage, previousPage, firstPage, lastPage, selectPage, contentType } 
 import { selectContentType } from "./paginationSlice";
 import { fetchMoviesHandler } from "../../features/movies/moviesSaga";
 import { fetchPeopleHandler } from "../../features/people/peopleSaga";
-import { fetchPersonHandler } from "../../features/people/searchSaga";
+import { fetchSearchHandler } from "../../features/people/searchSaga";
 
 function* fetchPaginationHandler() {
     try {
@@ -14,7 +14,7 @@ function* fetchPaginationHandler() {
         } else if (type === "people") {
             yield call(fetchPeopleHandler);
         } else if (type === "person") {
-            yield call(fetchPersonHandler)
+            yield call(fetchSearchHandler)
         }
         ;
 

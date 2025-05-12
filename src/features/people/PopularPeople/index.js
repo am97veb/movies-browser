@@ -24,7 +24,9 @@ export const PopularPeople = () => {
                     people.results.map(person => (
                         <PersonItem
                             key={person.id}
-                            person={person}
+                            id={person.id}
+                            image={person.profile_path}
+                            name={person.name}
                         />
                     ))
                 }

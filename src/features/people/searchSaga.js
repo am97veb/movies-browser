@@ -6,7 +6,7 @@ import { totalPages } from "../../common/Pagination/paginationSlice";
 import { selectContentType, contentType, selectPage } from "../../common/Pagination/paginationSlice";
 import { firstPage, nextPage, previousPage, lastPage } from "../../common/Pagination/paginationSlice";
 
-export function* fetchPersonHandler(action) {
+export function* fetchSearchHandler(action) {
 
     const apiKey = process.env.REACT_APP_TMDB_API_KEY_PERSON_SEARCH;
 
@@ -42,7 +42,7 @@ export function* fetchPersonHandler(action) {
 
 export function* searchSaga() {
     yield takeLatest(
-        newSearch.type, fetchPersonHandler);
+        newSearch.type, fetchSearchHandler);
     yield takeEvery(
         [
             firstPage.type,
@@ -50,6 +50,6 @@ export function* searchSaga() {
             previousPage.type,
             lastPage.type,
         ],
-        fetchPersonHandler
+        fetchSearchHandler
     );
 }
