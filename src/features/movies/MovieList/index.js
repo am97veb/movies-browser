@@ -1,28 +1,42 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectMovies, selectGenres } from "../moviesSlice";
 import MovieItem from "../MovieItem";
-import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
 import { Pagination } from "../../../common/Pagination";
+import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
 
-const MovieList = ({ movies }) => {
+const MovieList = () => {
+  const data = useSelector(selectMovies);
+  const genresList = useSelector(selectGenres);
+
+  const allMovies = data || [];
+
+  const mapGenres = (genre_ids) => {
+    return genre_ids.map((id) => {
+      const genre = genresList.find((g) => g.id === id);
+      return genre ? genre.name : "Unknown";
+    });
+  };
+
   return (
     <MovieListWrapper>
-      <MovieListHeading>Popular movies</MovieListHeading>
+      <MovieListHeading>Popular Movies</MovieListHeading>
       <MovieListGrid>
-        {movies.map((movie) => (
+        {allMovies.map((movie) => (
           <MovieItem
             key={movie.id}
             id={movie.id}
-            image={movie.image}
+            image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             title={movie.title}
             character={movie.character}
-            year={movie.year}
-            genres={movie.genres}
-            rating={movie.rating}
-            votes={movie.votes}
+            year={movie.release_date?.slice(0, 4)}
+            genres={mapGenres(movie.genre_ids)}
+            rating={movie.vote_average.toFixed(1)}
+            votes={movie.vote_count}
           />
         ))}
       </MovieListGrid>
-      <Pagination/>
+      <Pagination />
     </MovieListWrapper>
   );
 };
