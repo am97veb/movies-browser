@@ -11,10 +11,13 @@ import {
   MovieRating,
   RatingValue,
   StarIconStyled,
-  Votes
+  Votes,
+  MovieCharacter
 } from './styled';
+import { onlyYear } from "../../../common/dateFormatter";
 
-const MovieItem = ({ id, image, title, year, genres, rating, votes }) => {
+const MovieItem = ({ id, image, title, character, year, genres, rating, votes }) => {
+  
   return (
     <Link to={`/movies/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
       <MovieCard>
@@ -22,9 +25,14 @@ const MovieItem = ({ id, image, title, year, genres, rating, votes }) => {
           <MovieImage src={image} alt={title} />
         </MovieImageWrapper>
         <MovieTitle>{title}</MovieTitle>
-        <MovieYear>{year}</MovieYear>
+        {character ?
+        <MovieCharacter>{character} ({onlyYear(year)})</MovieCharacter>
+        :
+        <MovieYear>{onlyYear(year)}</MovieYear>
+        }
+        
         <MovieGenres>
-          {genres.map((genre, index) => (
+          {genres && genres.map((genre, index) => (
             <GenreTag key={index}>{genre}</GenreTag>
           ))}
         </MovieGenres>

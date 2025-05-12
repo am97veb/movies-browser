@@ -47,6 +47,9 @@ export const MovieYear = styled.p`
   text-align: left;
 `;
 
+export const MovieCharacter = styled(MovieYear)`
+
+`
 
 export const MovieGenres = styled.div`
   display: flex;

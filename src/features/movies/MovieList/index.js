@@ -3,8 +3,6 @@ import MovieItem from "../MovieItem";
 import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
 import { Pagination } from "../../../common/Pagination";
 
-
-
 const MovieList = ({ movies }) => {
   return (
     <MovieListWrapper>
@@ -16,6 +14,7 @@ const MovieList = ({ movies }) => {
             id={movie.id}
             image={movie.image}
             title={movie.title}
+            character={movie.character}
             year={movie.year}
             genres={movie.genres}
             rating={movie.rating}
