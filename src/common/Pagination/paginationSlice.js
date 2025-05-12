@@ -13,7 +13,7 @@ const paginationSlice = createSlice({
             state.page = 1;
         },
         totalPages:(state, {payload: data}) =>{
-            state.totalPages = data.total_pages;
+            state.totalPages = data.total_pages > 500 ? 500 : data.total_pages;
         },
         firstPage: (state) => {
             state.page = 1
@@ -27,7 +27,6 @@ const paginationSlice = createSlice({
         lastPage: (state) => {
             state.page = state.totalPages;
         }
-
     },
 });
 
