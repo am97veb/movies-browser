@@ -4,6 +4,7 @@ import { selectMovies, selectGenres } from "../moviesSlice";
 import MovieItem from "../MovieItem";
 import { Pagination } from "../../../common/Pagination";
 import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
+import { onlyYear } from "../../../common/dateFormatter";
 
 const MovieList = () => {
   const data = useSelector(selectMovies);
@@ -29,7 +30,7 @@ const MovieList = () => {
             image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             title={movie.title}
             character={movie.character}
-            year={movie.release_date?.slice(0, 4)}
+            year={onlyYear(movie.release_date)}
             genres={mapGenres(movie.genre_ids)}
             rating={movie.vote_average.toFixed(1)}
             votes={movie.vote_count}
