@@ -15,7 +15,7 @@ export const PersonPage = () => {
     const location = useLocation();
 
     useEffect(() => {
-        const idFromPathname = location.pathname.slice(8);
+        const idFromPathname = location.pathname.slice(15);
         dispatch(showPerson(idFromPathname));
     }, [location.pathname])
 
