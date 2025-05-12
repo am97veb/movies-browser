@@ -14,7 +14,7 @@ export default () => (
       <Route path="/movies" element={<MovieList movies={movies} />} />
       <Route path="/movies/:id" element={<MoviePage />} />
       <Route path="/people" element={<People />} />
-      <Route path="/people/:id" element={<PersonPage />} />
+      <Route path="/people/person/:id" element={<PersonPage />} />
       
     </Routes>
   </HashRouter>
