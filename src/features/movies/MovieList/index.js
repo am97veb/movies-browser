@@ -5,19 +5,12 @@ import MovieItem from "../MovieItem";
 import { Pagination } from "../../../common/Pagination";
 import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
 import { onlyYear } from "../../../common/dateFormatter";
+import { mapGenres } from "../../../common/mapGenres";
 
 const MovieList = () => {
   const data = useSelector(selectMovies);
   const genresList = useSelector(selectGenres);
-
   const allMovies = data || [];
-
-  const mapGenres = (genre_ids) => {
-    return genre_ids.map((id) => {
-      const genre = genresList.find((g) => g.id === id);
-      return genre ? genre.name : "Unknown";
-    });
-  };
 
   return (
     <MovieListWrapper>
@@ -31,7 +24,7 @@ const MovieList = () => {
             title={movie.title}
             character={movie.character}
             year={onlyYear(movie.release_date)}
-            genres={mapGenres(movie.genre_ids)}
+            genres={mapGenres(movie.genre_ids, genresList)}
             rating={movie.vote_average.toFixed(1)}
             votes={movie.vote_count}
           />

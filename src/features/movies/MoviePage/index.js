@@ -1,29 +1,33 @@
 import { useParams } from "react-router-dom";
 import { DescriptionTile } from "./DescriptionTile";
-import { ListSection } from "./ListSection";
+import { PeopleListSection } from "./ListSection";
 import { PosterHeader } from "./PosterHeader";
 import { MoviePageSection } from "./PosterHeader/styled";
 import { PersonItem } from "../../../common/PersonItem";
-import { useSelector } from "react-redux";
-import { selectMovies } from "../moviesSlice";
-import { selectGenres } from "../moviesSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { nanoid } from "@reduxjs/toolkit";
+import {
+    selectMovies,
+    selectGenres,
+    getMovieDetails,
+    selectCast,
+    selectCrew
+} from "../moviesSlice";
+import { mapGenres } from "../../../common/mapGenres";
 
 export const MoviePage = () => {
+    const dispatch = useDispatch();
     const { id } = useParams();
+    const genresList = useSelector(selectGenres);
+    const cast = useSelector(selectCast);
+    const crew = useSelector(selectCrew);
     const movies = useSelector(selectMovies);
     const movie = movies.find(movie => movie.id === Number(id));
-    console.log(movie);
-    console.log(movie.release_date);
-    const genresList = useSelector(selectGenres);
 
-
-    const mapGenres = (genre_ids) => {
-        return genre_ids.map((id) => {
-            const genre = genresList.find((g) => g.id === id);
-            return genre ? genre.name : "Unknown";
-        });
-    };
-
+    useEffect(() => {
+        dispatch(getMovieDetails(id));
+    }, [dispatch, id])
 
     return (
         <>
@@ -40,18 +44,32 @@ export const MoviePage = () => {
                     year={movie.release_date.split("-")[0]}
                     production={movie.production}
                     releaseDate={movie.release_date}
-                    genres={mapGenres(movie.genre_ids)}
-                    rating={movie.vote_average}
+                    genres={mapGenres(movie.genre_ids, genresList)}
+                    rating={movie.vote_average.toFixed(1)}
                     votes={movie.vote_count}
                     description={movie.overview}
                 />
-                <ListSection
+                <PeopleListSection
                     headerContent={"Cast"}
-                    sectionContent={<PersonItem />}
+                    sectionContent={cast && cast.map(cast => (
+                        <PersonItem
+                            key={nanoid()}
+                            id={cast.id}
+                            image={cast.profile_path}
+                            name={cast.name}
+                        />
+                    ))}
                 />
-                <ListSection
+                <PeopleListSection
                     headerContent={"Crew"}
-                    sectionContent={<PersonItem />}
+                    sectionContent={crew && crew.map(crew => (
+                        <PersonItem
+                            key={nanoid()}
+                            id={crew.id}
+                            image={crew.profile_path}
+                            name={crew.name}
+                        />
+                    ))}
                 />
             </MoviePageSection>
         </>
