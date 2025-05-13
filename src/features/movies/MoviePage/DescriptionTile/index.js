@@ -1,23 +1,41 @@
-import { Description, DescriptionPoster, DescriptionSection, Paragraph, Rating, Tags, Title, Year, ProductionInfo } from "./styled";
+import {
+    Description,
+    DescriptionPoster,
+    DescriptionSection,
+    DescriptionParagraph,
+    Title,
+    Year,
+    InfoParagraph,
+    ParagraphLabel
+} from "./styled";
+import { MovieGenres, GenreTag } from "../../MovieItem/styled";
+import { MovieRating, StarIconStyled, RatingValue, Votes } from "../../MovieItem/styled";
 
-export const DescriptionTile = () => (
+export const DescriptionTile = ({ poster, title, year, production, releaseDate, genres, rating, votes, description }) => (
     <DescriptionSection>
-        <DescriptionPoster
-            src={`${process.env.PUBLIC_URL}/PosterSmall.png`} alt="Poster"
-        />
+        <DescriptionPoster src={`https://image.tmdb.org/t/p/w500${poster}`} />
         <Description>
-            <Title> Mulan</Title>
-            <Year>2020</Year>
-            <ProductionInfo>Production: China, United States of America</ProductionInfo>
-            <ProductionInfo>Release date: 24.10.2020</ProductionInfo>
-            <Tags>Action, Adventure, Drama</Tags>
-            <Rating>Rating</Rating>
-            <Paragraph>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </Paragraph>
+            <Title>{title}</Title>
+            <Year>{year}</Year>
+            <InfoParagraph>
+                <ParagraphLabel>Production: </ParagraphLabel>
+                No data from API!!
+            </InfoParagraph>
+            <InfoParagraph>
+                <ParagraphLabel>Release date: </ParagraphLabel>
+                {releaseDate}
+            </InfoParagraph>
+            <MovieGenres>
+                {genres && genres.map((genre, index) => (
+                    <GenreTag key={index}>{genre}</GenreTag>
+                ))}
+            </MovieGenres>
+            <MovieRating>
+                <StarIconStyled />
+                <RatingValue>{rating}</RatingValue>
+                <Votes>{votes} votes</Votes>
+            </MovieRating>
+            <DescriptionParagraph>{description}</DescriptionParagraph>
         </Description>
     </DescriptionSection>
 );
