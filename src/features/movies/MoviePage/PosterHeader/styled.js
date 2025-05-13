@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { StarIconStyled, RatingValue, Votes } from "../../MovieItem/styled";
 
 export const MoviePageSection = styled.section`
-    max-width: 1368px;
+    max-width: 1400px;
     min-width: 300px;
     margin: 32px auto;
 `;
@@ -29,10 +29,10 @@ export const BackgroundContainer = styled.div`
 `;
 
 export const PosterWrapper = styled.div`
-  max-width: 1368px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  padding: 0 32px;
+  padding: 0 0px;
   display: flex;
   justify-content: center;
 `;
@@ -43,6 +43,20 @@ export const Poster = styled.img`
   object-fit: cover;
   position: relative;
   z-index: 1;
+/* 
+      @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+        margin: 56px 22px 24px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+        font-size: 30px;
+        margin: 24px 22px 24px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        font-size: 20px;
+        margin: 24px 16px 12px;
+    } */
 `;
 
 export const PosterInfo = styled.div`
@@ -99,7 +113,6 @@ export const InfoRatingValue = styled(RatingValue)`
     line-height: 130%;
     letter-spacing: 0px;
     vertical-align: middle;
-
     color: ${({ theme }) => theme.colors.white};
 `;
 
@@ -114,5 +127,4 @@ export const InfoRatingVotes = styled.p`
     vertical-align: middle;
 
     color: ${({ theme }) => theme.colors.white};
-
 `;

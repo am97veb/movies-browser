@@ -6,12 +6,13 @@ import {
     Title,
     Year,
     InfoParagraph,
-    ParagraphLabel
+    ParagraphLabel,
 } from "./styled";
 import { MovieGenres, GenreTag } from "../../MovieItem/styled";
 import { MovieRating, StarIconStyled, RatingValue, Votes } from "../../MovieItem/styled";
 
 export const DescriptionTile = ({ poster, title, year, production, releaseDate, genres, rating, votes, description }) => (
+
     <DescriptionSection>
         <DescriptionPoster src={`https://image.tmdb.org/t/p/w500${poster}`} />
         <Description>
