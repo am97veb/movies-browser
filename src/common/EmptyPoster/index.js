@@ -8,7 +8,7 @@ export const EmptyPoster = () => {
     const location = useLocation();
 
     return (
-        <StyledEmptyPoster float={location.pathname.includes("person") ? true : false} >
+        <StyledEmptyPoster $float={location.pathname.includes("person") ? true : false} >
             {contentType === null || contentType === "movies"
                 ?
                 <StyledEmptyPosterPath />
