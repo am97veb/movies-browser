@@ -39,7 +39,7 @@ export const StyledEmptyPoster = styled.div`
         margin-bottom: 8px;
     }
 
-    ${({ float }) => float && css`
+    ${({ $float }) => $float && css`
         max-width: 399px;
         max-height: 564px;
         width: 25vw;
