@@ -1,24 +1,22 @@
 import styled from "styled-components";
 
 export const MovieListWrapper = styled.section`
-  padding: 32px 16px;
-  width: 1368px;
-  height: 1391px;
-  margin: 0 auto;
-  top: 150px;
-  left: 276px;
+    max-width: 1432px;
+    min-width: 300px;
+    margin: 0px auto; 
 `;
 
-export const MovieListHeading = styled.h2`
-  font-size: 36px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.colors.black};
-  margin-bottom: 24px;
+export const MovieListHeading = styled.h1`
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 120%;
+    margin: 56px 32px 24px;
 `;
 
-export const MovieListGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 324px);
-  gap: 24px;
-  justify-content: center;
+export const MovieListGrid = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 0px;
+    margin: 0px 32px 40px;
 `;
