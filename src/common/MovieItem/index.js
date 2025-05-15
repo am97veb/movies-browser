@@ -15,7 +15,7 @@ import {
   MovieCharacter,
   StyledLink
 } from './styled';
-import { onlyYear } from "../../../common/dateFormatter";
+import { onlyYear } from "../dateFormatter";
 
 const MovieItem = ({ id, image, title, character, year, genres, rating, votes }) => {
 

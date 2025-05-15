@@ -3,7 +3,7 @@ import { ListSection } from "./ListSection";
 import { PersonPageSection } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCast, selectCrew, selectPerson, showPerson } from "./personSlice";
-import MovieItem from "../../movies/MovieItem";
+import MovieItem from "../../../common/MovieItem";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
