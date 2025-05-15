@@ -24,7 +24,7 @@ export const PersonPage = () => {
             <DescriptionTile
                 person={person}
             />
-            {cast.length !== 0 &&
+            {cast && cast.length !== 0 &&
                 <ListSection
                     headerContent={"Movies - cast"}
                     length={cast.length}
@@ -41,7 +41,7 @@ export const PersonPage = () => {
                     ))}
                 />
             }
-            {crew.length !== 0 &&
+            {crew && crew.length !== 0 &&
                 <ListSection
                     headerContent={"Movies - crew"}
                     length={crew.length}
