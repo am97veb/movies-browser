@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { StarIconStyled, RatingValue, Votes } from "../../MovieItem/styled";
 
 export const MoviePageSection = styled.section`
-    max-width: 1368px;
+    max-width: 1400px;
     min-width: 300px;
     margin: 32px auto;
 `;
@@ -12,17 +13,8 @@ export const BackgroundContainer = styled.div`
   justify-content: center;
   position: relative;
   background-color: black;
-`;
 
-export const PosterWrapper = styled.div`
-  max-width: 1368px;
-  margin: 0 auto;
-  position: relative;
-  padding: 0 32px;
-  display: flex;
-  justify-content: center;
-
-  &::before {
+    &::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -36,10 +28,103 @@ export const PosterWrapper = styled.div`
   }
 `;
 
+export const PosterWrapper = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 0px;
+  display: flex;
+  justify-content: center;
+`;
+
 export const Poster = styled.img`
   width: 100%;
   max-height: 770px;
   object-fit: cover;
   position: relative;
   z-index: 1;
+/* 
+      @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
+        margin: 56px 22px 24px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+        font-size: 30px;
+        margin: 24px 22px 24px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        font-size: 20px;
+        margin: 24px 16px 12px;
+    } */
+`;
+
+export const PosterInfo = styled.div`
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  z-index: 3;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    bottom: 16px;
+    left: 16px;
+  }
+`;
+
+export const InfoTitle = styled.h1`
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 77px;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+export const InfoRating = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+`;
+
+export const InfoRatingMain = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const InfoRatingStar = styled(StarIconStyled)`
+    width: 40px;
+    height: 40px;
+`;
+
+export const InfoRatingValue = styled(RatingValue)`
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    color: ${({ theme }) => theme.colors.white};
+`;
+
+export const InfoRatingScale = styled(InfoRatingValue)`
+    font-size: 16px;
+`;
+
+export const InfoRatingVotes = styled.p`
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    vertical-align: middle;
+
+    color: ${({ theme }) => theme.colors.white};
 `;

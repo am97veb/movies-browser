@@ -1,6 +1,14 @@
 import { put, call, select, takeEvery } from "redux-saga/effects";
 import { fetchApiData } from "../../fetchApiData";
-import { showMovies, fetchDataError, fetchDataSuccess, setGenres } from "./moviesSlice";
+import {
+  showMovies,
+  getMovieDetails,
+  fetchDataSuccess,
+  fetchMovieDetailsSuccess,
+  fetchDataError,
+  fetchMovieDetailsError,
+  setGenres
+} from "./moviesSlice";
 import { selectContentType, totalPages, selectPage, contentType } from "../../common/Pagination/paginationSlice";
 
 export function* fetchMoviesHandler() {
@@ -32,10 +40,18 @@ export function* fetchGenresHandler() {
   }
 }
 
-export function* moviesSaga() {
-  
-  yield call(fetchMoviesHandler);
+export function* fetchMovieDetailsHandler({ payload: id }) {
+  try {
+    const detailsApiData = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
+    const movieDetails = yield call(fetchApiData, detailsApiData);
+    yield put(fetchMovieDetailsSuccess(movieDetails));
+  } catch (error) {
+    yield put(fetchMovieDetailsError());
+  }
+}
 
-  
+export function* moviesSaga() {
+  yield call(fetchMoviesHandler);
   yield takeEvery(showMovies.type, fetchMoviesHandler);
+  yield takeEvery(getMovieDetails.type, fetchMovieDetailsHandler);
 }

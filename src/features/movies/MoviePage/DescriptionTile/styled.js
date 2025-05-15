@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const DescriptionSection = styled.section`
-    /* max-width: 1368px; */
-    margin: 32px;
-    padding: 40px;
+    margin: 16px;
+    padding: 40px 40px;
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -19,13 +18,18 @@ export const Description = styled.div`
     font-size: 20px;
 `;
 
-export const Paragraph = styled.p`
+export const DescriptionParagraph = styled.p`
     font-size: 20px;
-    `;
 
-export const Title = styled.p`
+     @media (max-width: 768px) {
+    margin: 0;
+  }
+`;
+
+export const Title = styled.h1`
     font-size: 36px;
     font-weight: 600px;
+    line-height: 120%;
 `;
 
 export const Year = styled.p`
@@ -33,16 +37,12 @@ export const Year = styled.p`
     font-weight: 400px;
 `;
 
-export const ProductionInfo = styled.p`
+export const InfoParagraph = styled.p`
     font-size: 18px;
     font-weight: 400px;
     color: rgba(116, 120, 139, 1);
 `;
 
-export const Tags = styled.div`
-
-`;
-
-export const Rating = styled.div`
-    
+export const ParagraphLabel = styled.span`
+    color: black;
 `;
