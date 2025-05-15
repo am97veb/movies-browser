@@ -29,5 +29,6 @@ export const useReplaceQueryParameter = () => {
 export const usePlaceholder = () => {
     const location = useLocation();
     const path = location.pathname.replace(/^\/+/, "");
-    return path;
+    const pathFirstSegment = path.split("/")[0];
+    return pathFirstSegment;
 };
