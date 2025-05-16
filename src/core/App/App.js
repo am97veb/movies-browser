@@ -16,8 +16,6 @@ export default () => (
       <Route path="/people" element={<People />} />
       <Route path="/people/person/:id" element={<PersonPage />} />
       <Route path="/" element={<Navigate to="/movies" />} />
-
     </Routes>
   </HashRouter>
 );
-

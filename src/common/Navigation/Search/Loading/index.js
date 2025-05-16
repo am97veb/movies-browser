@@ -1,4 +1,3 @@
-import React from "react";
 import { Wrapper, Title, SpinnerWrapper } from "./styled";
 import { ReactComponent as SpinnerIcon } from "./spinnerIcon.svg";
 

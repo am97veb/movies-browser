@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectMovies, selectGenres } from "../moviesSlice";
 import MovieItem from "../../../common/MovieItem";
@@ -8,8 +8,7 @@ import { onlyYear } from "../../../common/dateFormatter";
 import { mapGenres } from "../../../common/mapGenres";
 import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
-import { selectSearchResult, selectSearchStatus } from "../../people/searchSlice";
-import { selectQuery } from "../../people/searchSlice";
+import { selectSearchResult, selectQuery } from "../../people/searchSlice";
 import { selectPage } from "../../../common/Pagination/paginationSlice";
 
 const MovieList = () => {

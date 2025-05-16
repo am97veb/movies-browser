@@ -6,12 +6,10 @@ import { selectPeople } from "../peopleSlice";
 import { Pagination } from "../../../common/Pagination";
 import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
-import { selectSearchResult, selectSearchStatus } from "../searchSlice";
-import { selectQuery } from "../searchSlice";
+import { selectSearchResult, selectQuery } from "../searchSlice";
 import { selectPage } from "../../../common/Pagination/paginationSlice";
 
 export const PopularPeople = () => {
-    const status = useSelector(selectSearchStatus);
     const query = useQueryParameters(searchQueryParamName);
     const sliceQuery = useSelector(selectQuery);
     const page = useSelector(selectPage);

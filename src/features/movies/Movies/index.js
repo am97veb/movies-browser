@@ -1,16 +1,14 @@
 import { useSelector } from "react-redux";
-import { selectSearchStatus, selectQuery } from "../../people/searchSlice";
+import { selectSearchStatus, selectQuery, selectSearchResult } from "../../people/searchSlice";
 import MovieList from "../MovieList";
 import Error from "../../../common/Navigation/Search/Error";
 import Loading from "../../../common/Navigation/Search/Loading";
-import { selectSearchResult } from "../../people/searchSlice";
 import NoResult from "../../../common/Navigation/Search/NoResult";
 
 export const Movies = () => {
     const searchStatus = useSelector(selectSearchStatus);
     const searchQuery = useSelector(selectQuery);
     const searchResult = useSelector(selectSearchResult);
-
 
     switch (searchStatus) {
         case "idle":

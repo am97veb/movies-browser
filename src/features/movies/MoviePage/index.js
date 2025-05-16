@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { DescriptionTile } from "./DescriptionTile";
 import { PeopleListSection } from "./ListSection";
 import { PosterHeader } from "./PosterHeader";
 import { MoviePageSection } from "./PosterHeader/styled";
 import { PersonItem } from "../../../common/PersonItem";
-import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import {
-    selectMovies,
     selectGenres,
     getMovieDetails,
     selectCast,
