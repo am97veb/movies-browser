@@ -20,5 +20,6 @@ export function* fetchPeopleHandler() {
 }
 
 export function* peopleSaga() {
+    yield call(fetchPeopleHandler);
     yield takeEvery(showPeople.type, fetchPeopleHandler);
 }

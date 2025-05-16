@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   MovieCard,
   MovieImageWrapper,
@@ -21,7 +19,7 @@ const MovieItem = ({ id, image, title, character, year, genres, rating, votes })
 
   return (
     <MovieCard>
-      <StyledLink to={`/movies/${id}`}>
+      <StyledLink to={`/movies/movie/${id}`}>
         <MovieImageWrapper>
           <MovieImage src={image} alt={title} />
         </MovieImageWrapper>

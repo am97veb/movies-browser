@@ -1,4 +1,3 @@
-import React from 'react';
 import { Message, IconWrapper } from './styled';
 import { ReactComponent as NoResultIcon } from './NoResultIcon.svg';
 

@@ -1,18 +1,18 @@
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { DescriptionTile } from "./DescriptionTile";
 import { PeopleListSection } from "./ListSection";
 import { PosterHeader } from "./PosterHeader";
 import { MoviePageSection } from "./PosterHeader/styled";
 import { PersonItem } from "../../../common/PersonItem";
-import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import {
-    selectMovies,
     selectGenres,
     getMovieDetails,
     selectCast,
-    selectCrew
+    selectCrew,
+    selectMovieDetails
 } from "../moviesSlice";
 import { mapGenres } from "../../../common/mapGenres";
 
@@ -22,12 +22,15 @@ export const MoviePage = () => {
     const genresList = useSelector(selectGenres);
     const cast = useSelector(selectCast);
     const crew = useSelector(selectCrew);
-    const movies = useSelector(selectMovies);
-    const movie = movies.find(movie => movie.id === Number(id));
+    const movie = useSelector(selectMovieDetails);
 
     useEffect(() => {
         dispatch(getMovieDetails(id));
     }, [dispatch, id])
+
+    if (!movie || movie.id !== Number(id)) {
+        return
+    }
 
     return (
         <>
@@ -44,7 +47,7 @@ export const MoviePage = () => {
                     year={movie.release_date.split("-")[0]}
                     production={movie.production}
                     releaseDate={movie.release_date}
-                    genres={mapGenres(movie.genre_ids, genresList)}
+                    genres={mapGenres(movie.genres, genresList)}
                     rating={movie.vote_average.toFixed(1)}
                     votes={movie.vote_count}
                     description={movie.overview}

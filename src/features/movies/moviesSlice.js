@@ -11,7 +11,7 @@ const moviesSlice = createSlice({
   },
   reducers: {
     showMovies: () => { },
-    getMovieDetails: () => { },
+    getMovieDetails: () => {},
     fetchDataSuccess: (state, { payload: movies }) => {
       state.fetchStatus = "success";
       state.moviesData = movies.results;
