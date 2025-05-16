@@ -6,11 +6,15 @@ import { Pagination } from "../../../common/Pagination";
 import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
 import { selectSearchResult, selectSearchStatus } from "../searchSlice";
+import { selectQuery } from "../searchSlice";
 
 export const PopularPeople = () => {
+    const status = useSelector(selectSearchStatus);
     const query = useQueryParameters(searchQueryParamName);
+    const sliceQuery = useSelector(selectQuery);
+
     const people = useSelector(state =>
-        query?.trim()
+        (query?.trim() && query === sliceQuery)
             ? selectSearchResult(state)
             : selectPeople(state));
 
@@ -20,8 +24,8 @@ export const PopularPeople = () => {
                 Popular people
             </Header>
             <PeopleList>
-                {people.results &&
-                    people.results.map(person => (
+                {Array.isArray(people) &&
+                    people.map(person => (
                         <PersonItem
                             key={person.id}
                             id={person.id}
