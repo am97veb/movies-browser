@@ -6,6 +6,7 @@ import { selectCast, selectCrew, selectPerson, showPerson } from "./personSlice"
 import MovieItem from "../../../common/MovieItem";
 import { useLocation, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const PersonPage = () => {
     const person = useSelector(selectPerson);
@@ -31,7 +32,7 @@ export const PersonPage = () => {
                     length={cast.length}
                     sectionContent={cast.map(cast => (
                         <MovieItem
-                            key={cast.id}
+                            key={nanoid()}
                             image={`https://image.tmdb.org/t/p/w500${cast.poster_path}`}
                             title={cast.original_title}
                             character={cast.character}
@@ -48,7 +49,7 @@ export const PersonPage = () => {
                     length={crew.length}
                     sectionContent={crew.map(crew => (
                         <MovieItem
-                            key={crew.id}
+                            key={nanoid()}
                             image={`https://image.tmdb.org/t/p/w500${crew.poster_path}`}
                             title={crew.original_title}
                             year={crew.release_date}
