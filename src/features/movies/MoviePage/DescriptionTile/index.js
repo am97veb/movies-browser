@@ -8,8 +8,8 @@ import {
     InfoParagraph,
     ParagraphLabel,
 } from "./styled";
-import { MovieGenres, GenreTag } from "../../MovieItem/styled";
-import { MovieRating, StarIconStyled, RatingValue, Votes } from "../../MovieItem/styled";
+import { MovieGenres, GenreTag } from "../../../../common/MovieItem/styled";
+import { MovieRating, StarIconStyled, RatingValue, Votes } from "../../../../common/MovieItem/styled";
 
 export const DescriptionTile = ({ poster, title, year, production, releaseDate, genres, rating, votes, description }) => (
 

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { ReactComponent as StarIcon } from './StarIcon.svg';
 
-export const MovieCard = styled.div`
+export const MovieCard = styled.li`
   width: 324px;
   height: 680px; 
   border-radius: 5px;
@@ -12,6 +13,10 @@ export const MovieCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export const MovieImageWrapper = styled.div`

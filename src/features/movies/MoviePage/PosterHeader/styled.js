@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StarIconStyled, RatingValue, Votes } from "../../MovieItem/styled";
+import { StarIconStyled, RatingValue, Votes } from "../../../../common/MovieItem/styled";
 
 export const MoviePageSection = styled.section`
     max-width: 1400px;
