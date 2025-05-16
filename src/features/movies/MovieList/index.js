@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectMovies, selectGenres } from "../moviesSlice";
-import MovieItem from "../MovieItem";
+import MovieItem from "../../../common/MovieItem";
 import { Pagination } from "../../../common/Pagination";
 import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
 import { onlyYear } from "../../../common/dateFormatter";
