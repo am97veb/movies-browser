@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import {
   MovieCard,
   MovieImageWrapper,
@@ -12,25 +12,25 @@ import {
   RatingValue,
   StarIconStyled,
   Votes,
-  MovieCharacter
+  MovieCharacter,
+  StyledLink
 } from './styled';
 import { onlyYear } from "../dateFormatter";
 
 const MovieItem = ({ id, image, title, character, year, genres, rating, votes }) => {
-  
+
   return (
-    <Link to={`/movies/movie/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
-      <MovieCard>
+    <MovieCard>
+      <StyledLink to={`/movies/movie/${id}`}>
         <MovieImageWrapper>
           <MovieImage src={image} alt={title} />
         </MovieImageWrapper>
         <MovieTitle>{title}</MovieTitle>
         {character ?
-        <MovieCharacter>{character} ({onlyYear(year)})</MovieCharacter>
-        :
-        <MovieYear>{onlyYear(year)}</MovieYear>
+          <MovieCharacter>{character} ({onlyYear(year)})</MovieCharacter>
+          :
+          <MovieYear>{onlyYear(year)}</MovieYear>
         }
-        
         <MovieGenres>
           {genres && genres.map((genre, index) => (
             <GenreTag key={index}>{genre}</GenreTag>
@@ -41,8 +41,8 @@ const MovieItem = ({ id, image, title, character, year, genres, rating, votes })
           <RatingValue>{rating}</RatingValue>
           <Votes>{votes} votes</Votes>
         </MovieRating>
-      </MovieCard>
-    </Link>
+      </StyledLink>
+    </MovieCard >
   );
 };
 
