@@ -48,12 +48,12 @@ export const Search = () => {
 
         const trimmedValue = value.trim();
 
-        if (placeholder === "people") {
-            navigate(`/people?search=${trimmedValue}`);
-        }
-        else {
-            navigate(`/movies?search=${trimmedValue}`);
-        }
+        navigate(
+            placeholder === "people"
+                ? trimmedValue ? `/people?search=${trimmedValue}` : "/people"
+                : trimmedValue ? `/movies?search=${trimmedValue}` : "/movies"
+        );
+
         debouncedSearch(trimmedValue, placeholder);
     };
 
