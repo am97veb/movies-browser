@@ -10,7 +10,7 @@ const peopleSlice = createSlice({
         showPeople: () => { },
         fetchDataSuccess: (state, { payload: people }) => {
             state.fetchStatus = "success";
-            state.peopleData = people;
+            state.peopleData = people.results;
         },
         fetchDataError: (state) => {
             state.fetchStatus = "error";
