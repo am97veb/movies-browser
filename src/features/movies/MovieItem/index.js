@@ -19,7 +19,7 @@ import { onlyYear } from "../../../common/dateFormatter";
 const MovieItem = ({ id, image, title, character, year, genres, rating, votes }) => {
   
   return (
-    <Link to={`/movies/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
+    <Link to={`/movies/movie/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
       <MovieCard>
         <MovieImageWrapper>
           <MovieImage src={image} alt={title} />

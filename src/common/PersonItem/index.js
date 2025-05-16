@@ -9,7 +9,7 @@ export const PersonItem = ({ id, image, name }) => {
     return (
         <StyledPersonItem>
             <StyledLink
-                to={`person/${id}`}
+                to={`/people/person/${id}`}
                 onClick={() => { dispatch(showPerson(id)) }}
             >
                 {image !== null ?
