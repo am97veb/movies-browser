@@ -13,7 +13,7 @@ export default () => (
     <Navigation />
     <Routes>
       <Route path="/movies" element={<Movies />} />
-      <Route path="/movies/:id" element={<MoviePage />} />
+      <Route path="/movies/movie/:id" element={<MoviePage />} />
       <Route path="/people" element={<People />} />
       <Route path="/people/person/:id" element={<PersonPage />} />
       <Route path="/" element={<Navigate to="/movies" />} />
