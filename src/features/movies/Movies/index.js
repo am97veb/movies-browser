@@ -29,5 +29,4 @@ export const Movies = () => {
         default:
             return <MovieList />
     }
-
 }

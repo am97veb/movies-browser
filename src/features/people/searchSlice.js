@@ -26,11 +26,11 @@ const searchSlice = createSlice({
             state.status = "idle";
             state.results = {};
             state.placeholder = "";
-        }
+        },
     },
 });
 
-export const { newSearch, fetchDataSuccess, fetchDataError, clearSearch } = searchSlice.actions;
+export const { newSearch, fetchDataSuccess, fetchDataError, clearSearch} = searchSlice.actions;
 export const selectSearchResult = state => state.search.searchResult;
 export const selectSearchStatus = state => state.search.searchStatus;
 export const selectQuery = state => state.search.query;
