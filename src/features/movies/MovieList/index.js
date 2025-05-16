@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectMovies, selectGenres } from "../moviesSlice";
 import MovieItem from "../../../common/MovieItem";
@@ -10,18 +10,22 @@ import { useQueryParameters } from "../../../common/Navigation/Search/queryParam
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
 import { selectSearchResult, selectSearchStatus } from "../../people/searchSlice";
 import { selectQuery } from "../../people/searchSlice";
+import { selectPage } from "../../../common/Pagination/paginationSlice";
 
 const MovieList = () => {
   const query = useQueryParameters(searchQueryParamName);
-  const data = useSelector(selectMovies);
   const genresList = useSelector(selectGenres);
-  const searchStatus = useSelector(selectSearchStatus);
   const sliceQuery = useSelector(selectQuery);
+  const page = useSelector(selectPage);
 
   const movies = useSelector(state =>
     (query?.trim() && query === sliceQuery)
       ? selectSearchResult(state)
       : selectMovies(state));
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page])
 
   return (
     <MovieListWrapper>

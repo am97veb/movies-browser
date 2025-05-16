@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { PersonItem } from "../../../common/PersonItem/index";
 import { Wrapper, Header, PeopleList } from "./styled";
@@ -7,16 +8,23 @@ import { useQueryParameters } from "../../../common/Navigation/Search/queryParam
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
 import { selectSearchResult, selectSearchStatus } from "../searchSlice";
 import { selectQuery } from "../searchSlice";
+import { selectPage } from "../../../common/Pagination/paginationSlice";
 
 export const PopularPeople = () => {
     const status = useSelector(selectSearchStatus);
     const query = useQueryParameters(searchQueryParamName);
     const sliceQuery = useSelector(selectQuery);
+    const page = useSelector(selectPage);
+
 
     const people = useSelector(state =>
         (query?.trim() && query === sliceQuery)
             ? selectSearchResult(state)
             : selectPeople(state));
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [page])
 
     return (
         <Wrapper>
