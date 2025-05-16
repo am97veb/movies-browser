@@ -11,6 +11,7 @@ import { showPeople } from "../../../features/people/peopleSlice";
 import { contentType } from "../../Pagination/paginationSlice";
 import { showMovies } from "../../../features/movies/moviesSlice";
 import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Search = () => {
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export const Search = () => {
     const placeholder = usePlaceholder();
     const placeholderText = placeholder === "movies" ? "movies" : "people";
     const [inputValue, setInputValue] = useState(query || "");
+    const navigate = useNavigate();
 
     const debouncedSearch = useRef(
         debounce((trimmedValue, placeholder) => {
@@ -45,6 +47,13 @@ export const Search = () => {
         });
 
         const trimmedValue = value.trim();
+
+        if (placeholder === "people") {
+            navigate(`/people?search=${trimmedValue}`);
+        }
+        else {
+            navigate(`/movies?search=${trimmedValue}`);
+        }
         debouncedSearch(trimmedValue, placeholder);
     };
 
