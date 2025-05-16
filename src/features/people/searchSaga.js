@@ -4,12 +4,14 @@ import { newSearch, fetchDataSuccess, fetchDataError } from "./searchSlice";
 import { call, put } from "redux-saga/effects";
 import { totalPages } from "../../common/Pagination/paginationSlice";
 import { selectContentType, selectPage } from "../../common/Pagination/paginationSlice";
+import { selectQuery } from "./searchSlice";
 
 export function* fetchSearchHandler(action = {}) {
     const apiKey = process.env.REACT_APP_TMDB_API_KEY_PERSON_SEARCH;
+    const queryFromState = yield select(selectQuery);
 
-    const query = action.payload?.trimmedValue || "";
-    if (!query) return; //
+    const query = action.payload?.trimmedValue || queryFromState;
+    if (!query) return;
     const page = yield select(selectPage);
     const type = yield select(selectContentType);
     const encodedQuery = encodeURIComponent(query);
