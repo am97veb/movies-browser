@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/movies-browser/static/js/main.290419f4.js",
+    "main.js": "/movies-browser/static/js/main.4dfea2de.js",
     "static/js/453.4f8818d1.chunk.js": "/movies-browser/static/js/453.4f8818d1.chunk.js",
     "static/media/Poster.png": "/movies-browser/static/media/Poster.4d8326bc753d2b01b560.png",
     "static/media/NoResultIcon.svg": "/movies-browser/static/media/NoResultIcon.af10a1e937a021122e5524cdcdf01bee.svg",
@@ -13,10 +13,10 @@
     "static/media/arrow.svg": "/movies-browser/static/media/arrow.95a980d03aa24878b4b68139a4fd2714.svg",
     "static/media/Search.svg": "/movies-browser/static/media/Search.67b8139a58176c2c50a2b1297a869e2b.svg",
     "static/media/spinnerIcon.svg": "/movies-browser/static/media/spinnerIcon.c5d5d6e8f2047bcb575a1bafe3cb1a57.svg",
-    "main.290419f4.js.map": "/movies-browser/static/js/main.290419f4.js.map",
+    "main.4dfea2de.js.map": "/movies-browser/static/js/main.4dfea2de.js.map",
     "453.4f8818d1.chunk.js.map": "/movies-browser/static/js/453.4f8818d1.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.290419f4.js"
+    "static/js/main.4dfea2de.js"
   ]
 }
