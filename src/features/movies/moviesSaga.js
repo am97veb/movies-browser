@@ -1,4 +1,5 @@
 import { put, call, select, takeEvery } from "redux-saga/effects";
+import { all } from "redux-saga/effects";
 import { fetchApiData } from "../../fetchApiData";
 import {
   showMovies,
@@ -42,9 +43,19 @@ export function* fetchGenresHandler() {
 
 export function* fetchMovieDetailsHandler({ payload: id }) {
   try {
-    const detailsApiData = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
-    const movieDetails = yield call(fetchApiData, detailsApiData);
-    yield put(fetchMovieDetailsSuccess(movieDetails));
+    const detailsApiData = `https://api.themoviedb.org/3/movie/${id}?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
+    const creditsApiData = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
+
+    const [movieDetails, credits] = yield all([
+      call(fetchApiData, detailsApiData),
+      call(fetchApiData, creditsApiData),
+    ]);
+
+    yield put(fetchMovieDetailsSuccess({
+      ...movieDetails,
+      cast: credits.cast,
+      crew: credits.crew,
+    }));
   } catch (error) {
     yield put(fetchMovieDetailsError());
   }

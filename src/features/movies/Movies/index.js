@@ -1,18 +1,18 @@
 import { useSelector } from "react-redux";
-import Loading from "../../../common/Navigation/Search/Loading";
+import { selectSearchStatus, selectQuery, selectSearchResult } from "../../people/searchSlice";
+import MovieList from "../MovieList";
 import Error from "../../../common/Navigation/Search/Error";
-import { PopularPeople } from "../PopularPeople";
-import { selectQuery, selectSearchResult, selectSearchStatus } from "../searchSlice";
+import Loading from "../../../common/Navigation/Search/Loading";
 import NoResult from "../../../common/Navigation/Search/NoResult";
 
-export const People = () => {
+export const Movies = () => {
     const searchStatus = useSelector(selectSearchStatus);
     const searchQuery = useSelector(selectQuery);
     const searchResult = useSelector(selectSearchResult);
 
     switch (searchStatus) {
         case "idle":
-            return <PopularPeople />
+            return <MovieList />
         case "error":
             return <Error />;
         case "loading":
@@ -22,9 +22,9 @@ export const People = () => {
                 return <NoResult searchTerm={searchQuery} />
             }
             else {
-                return <PopularPeople />
+                return <MovieList />
             }
         default:
-            return <PopularPeople />
+            return <MovieList />
     }
-};
+}

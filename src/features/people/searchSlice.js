@@ -8,21 +8,29 @@ const searchSlice = createSlice({
         query: "",
     },
     reducers: {
-        newSearch: (state, action) => {
-            state.query = action.payload;
-            state.searchStatus = "loading"
-         },
-        fetchDataSuccess: (state, { payload: personSearch }) => {
+        newSearch: (state, { payload: { trimmedValue } }) => {
+            state.query = trimmedValue;
+            state.searchStatus = "loading";
+            state.searchResult = {};
+        },
+        fetchDataSuccess: (state, { payload: searchResults }) => {
             state.searchStatus = "success";
-            state.searchResult = personSearch;
+            state.searchResult = searchResults.results;
+            console.log(searchResults);
         },
         fetchDataError: (state) => {
             state.searchStatus = "error";
         },
+        clearSearch: (state) => {
+            state.query = "";
+            state.status = "idle";
+            state.results = {};
+            state.placeholder = "";
+        },
     },
 });
 
-export const { newSearch, fetchDataSuccess, fetchDataError } = searchSlice.actions;
+export const { newSearch, fetchDataSuccess, fetchDataError, clearSearch} = searchSlice.actions;
 export const selectSearchResult = state => state.search.searchResult;
 export const selectSearchStatus = state => state.search.searchStatus;
 export const selectQuery = state => state.search.query;

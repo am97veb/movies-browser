@@ -8,12 +8,13 @@ import { fetchSearchHandler } from "../../features/people/searchSaga";
 function* fetchPaginationHandler() {
     try {
         const type = yield select(selectContentType);
-
+        console.log(type);
+        
         if (type === null || type === "movies") {
             yield call(fetchMoviesHandler);
         } else if (type === "people") {
             yield call(fetchPeopleHandler);
-        } else if (type === "person") {
+        } else if (type === "person" || type === "movie") {
             yield call(fetchSearchHandler)
         }
         ;
