@@ -4,7 +4,7 @@ import { PersonPageSection } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCast, selectCrew, selectPerson, showPerson } from "./personSlice";
 import MovieItem from "../../../common/MovieItem";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 
@@ -13,9 +13,7 @@ export const PersonPage = () => {
     const cast = useSelector(selectCast);
     const crew = useSelector(selectCrew);
     const dispatch = useDispatch();
-    const location = useLocation();
     const { id } = useParams();
-    console.log(id);
 
     useEffect(() => {
         dispatch(showPerson(id));
@@ -33,6 +31,7 @@ export const PersonPage = () => {
                     sectionContent={cast.map(cast => (
                         <MovieItem
                             key={nanoid()}
+                            id={cast.id}
                             image={`https://image.tmdb.org/t/p/w500${cast.poster_path}`}
                             title={cast.original_title}
                             character={cast.character}
@@ -50,6 +49,7 @@ export const PersonPage = () => {
                     sectionContent={crew.map(crew => (
                         <MovieItem
                             key={nanoid()}
+                            id={crew.id}
                             image={`https://image.tmdb.org/t/p/w500${crew.poster_path}`}
                             title={crew.original_title}
                             year={crew.release_date}
