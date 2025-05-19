@@ -37,7 +37,9 @@ const MovieItem = ({ id, image, title, character, year, genres, rating, votes })
         <MovieRating>
           <StarIconStyled />
           <RatingValue>{rating}</RatingValue>
-          <Votes>{votes} votes</Votes>
+          <Votes>
+  {votes ? `${votes} votes` : "No votes"}
+</Votes>
         </MovieRating>
       </StyledLink>
     </MovieCard >
