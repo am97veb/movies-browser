@@ -32,7 +32,7 @@ export const PersonPage = () => {
                         <MovieItem
                             key={nanoid()}
                             id={cast.id}
-                            image={`https://image.tmdb.org/t/p/w500${cast.poster_path}`}
+                            image={cast.poster_path}
                             title={cast.original_title}
                             character={cast.character}
                             year={cast.release_date}
@@ -50,7 +50,7 @@ export const PersonPage = () => {
                         <MovieItem
                             key={nanoid()}
                             id={crew.id}
-                            image={`https://image.tmdb.org/t/p/w500${crew.poster_path}`}
+                            image={crew.poster_path}
                             title={crew.original_title}
                             year={crew.release_date}
                             genres={crew.genres}
