@@ -4,7 +4,7 @@ import { ReactComponent as StarIcon } from './StarIcon.svg';
 
 export const MovieCard = styled.li`
   width: 324px;
-  height: 680px; 
+  height: 690px; 
   border-radius: 5px;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.white};
