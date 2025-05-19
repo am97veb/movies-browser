@@ -40,9 +40,9 @@ export const Year = styled.p`
 export const InfoParagraph = styled.p`
     font-size: 18px;
     font-weight: 400px;
-    color: rgba(116, 120, 139, 1);
+    color: ${({ theme }) => theme.colors.black }
 `;
 
 export const ParagraphLabel = styled.span`
-    color: black;
+    color: ${({ theme }) => theme.colors.stormGray};
 `;

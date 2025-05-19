@@ -10,17 +10,24 @@ import {
 } from "./styled";
 import { MovieGenres, GenreTag } from "../../../../common/MovieItem/styled";
 import { MovieRating, StarIconStyled, RatingValue, Votes } from "../../../../common/MovieItem/styled";
+import { StyledEmptyPosterPath, StyledEmptyPoster } from "../../../../common/EmptyPoster/styled";
 
 export const DescriptionTile = ({ poster, title, year, production, releaseDate, genres, rating, votes, description }) => (
 
     <DescriptionSection>
-        <DescriptionPoster src={`https://image.tmdb.org/t/p/w500${poster}`} />
+        {poster !== null ?
+            <DescriptionPoster src={`https://image.tmdb.org/t/p/w500${poster}`} />
+            :
+            <StyledEmptyPoster>
+                <StyledEmptyPosterPath />
+            </StyledEmptyPoster>
+        }
         <Description>
             <Title>{title}</Title>
             <Year>{year}</Year>
             <InfoParagraph>
                 <ParagraphLabel>Production: </ParagraphLabel>
-                No data from API!!
+                {production}
             </InfoParagraph>
             <InfoParagraph>
                 <ParagraphLabel>Release date: </ParagraphLabel>
