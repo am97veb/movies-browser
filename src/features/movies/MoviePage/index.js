@@ -14,7 +14,7 @@ import {
     selectCrew,
     selectMovieDetails
 } from "../moviesSlice";
-import { mapGenres } from "../../../common/mapGenres";
+import { movieGenres } from "../../../common/mapGenres";
 
 export const MoviePage = () => {
     const dispatch = useDispatch();
@@ -47,7 +47,7 @@ export const MoviePage = () => {
                     year={movie.release_date.split("-")[0]}
                     production={movie.production}
                     releaseDate={movie.release_date}
-                    genres={mapGenres(movie.genres, genresList)}
+                    genres={movieGenres(movie.genres)}
                     rating={movie.vote_average.toFixed(1)}
                     votes={movie.vote_count}
                     description={movie.overview}
