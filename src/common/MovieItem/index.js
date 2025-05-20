@@ -14,6 +14,7 @@ import {
   StyledLink
 } from './styled';
 import { onlyYear } from "../dateFormatter";
+import { EmptyPoster } from '../EmptyPoster';
 
 const MovieItem = ({ id, image, title, character, year, genres, rating, votes }) => {
 
@@ -21,7 +22,10 @@ const MovieItem = ({ id, image, title, character, year, genres, rating, votes })
     <MovieCard>
       <StyledLink to={`/movies/movie/${id}`}>
         <MovieImageWrapper>
-          <MovieImage src={image} alt={title} />
+          {image !== null ?
+            <MovieImage src={`https://image.tmdb.org/t/p/w500${image}`} alt={title} />
+            :
+            <EmptyPoster />}
         </MovieImageWrapper>
         <MovieTitle>{title}</MovieTitle>
         {character ?
@@ -35,12 +39,15 @@ const MovieItem = ({ id, image, title, character, year, genres, rating, votes })
           ))}
         </MovieGenres>
         <MovieRating>
-          <StarIconStyled />
-          <RatingValue>{rating}</RatingValue>
-          <Votes>
-  {votes ? `${votes} votes` : "No votes"}
-</Votes>
-        </MovieRating>
+          {votes > 0 ?
+            <>
+              <StarIconStyled />
+              <RatingValue>{rating}</RatingValue>
+              <Votes>{votes} votes</Votes>
+            </>
+            :
+             <Votes>No votes</Votes>}
+          </MovieRating>
       </StyledLink>
     </MovieCard >
   );

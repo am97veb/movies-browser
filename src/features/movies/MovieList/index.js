@@ -35,7 +35,7 @@ const MovieList = () => {
             <MovieItem
               key={movie.id}
               id={movie.id}
-              image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              image={movie.poster_path}
               title={movie.title}
               character={movie.character}
               year={onlyYear(movie.release_date)}

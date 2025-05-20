@@ -33,7 +33,8 @@ export const SearchInput = styled.input`
     border-radius: 0 33px 33px 0;
     font-size: 16px;
     font-weight: 400;
-    `;
+    outline: none;
+`;
 
 export const LoupeSVG = styled(Loupe)`
     width: 24px;

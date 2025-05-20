@@ -88,12 +88,35 @@ export const RatingValue = styled.span`
   font-size: 16px;
   line-height: 150%;
   color: ${({ theme }) => theme.colors.black};
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+            font-size: 13px;
+            line-height: 130%;
+        }
+                
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+            
+        }
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+            
+        }
 `;
 
 export const StarIconStyled = styled(StarIcon)`
   width: 24px;
-  height: 24px;
+  height: auto;
   fill: ${({ theme }) => theme.colors.deepLemon};
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+          width: 16px;
+        }
+                
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+            
+        }
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+            
+        }
 `;
 
 export const Votes = styled.span`
@@ -101,4 +124,16 @@ export const Votes = styled.span`
   font-size: 16px;
   line-height: 150%;
   color: ${({ theme }) => theme.colors.lightSlateGrey};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+            font-size: 13px;
+            line-height: 130%;
+        }
+                
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+            
+        }
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+            
+        }
 `;

@@ -18,6 +18,7 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
     list-style: none;
+
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -27,14 +28,28 @@ export const StyledNavLink = styled(NavLink)`
     font-weight: 600;
     padding: 13.5px 24px;
 
-    &.hover {
-        cursor: pointer;
+    &:hover {
+        border: 1px solid white;
+        border-radius: 24px;
     }
 
     &.active {
         border: 2px solid white;
         border-radius: 24px;
     }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+                
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+            
+        }
+        
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+            
+        }
 `;
 
 export const BarWrapper = styled.div`
