@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StarIconStyled, RatingValue, Votes } from "../../../../common/MovieItem/styled";
+import { StarIconStyled, RatingValue } from "../../../../common/MovieItem/styled";
 
 export const MoviePageSection = styled.section`
     max-width: 1400px;
@@ -43,20 +43,7 @@ export const Poster = styled.img`
   object-fit: cover;
   position: relative;
   z-index: 1;
-/* 
-      @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
-        margin: 56px 22px 24px;
-    }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-        font-size: 30px;
-        margin: 24px 22px 24px;
-    }
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
-        font-size: 20px;
-        margin: 24px 16px 12px;
-    } */
 `;
 
 export const PosterInfo = styled.div`
@@ -70,10 +57,17 @@ export const PosterInfo = styled.div`
   flex-direction: column;
   gap: 16px;
 
-  @media (max-width: 768px) {
-    bottom: 16px;
-    left: 16px;
-  }
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+            bottom: 16px;
+            left: 16px;
+            gap: 4px;
+        }
+                
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+        }
+        
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        }
 `;
 
 export const InfoTitle = styled.h1`
@@ -82,9 +76,9 @@ export const InfoTitle = styled.h1`
   line-height: 77px;
   margin: 0;
 
-  @media (max-width: 768px) {
-    font-size: 24px;
-  }
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+        font-size: 24px;
+      }
 `;
 
 export const InfoRating = styled.div`

@@ -37,6 +37,19 @@ export const StyledNavLink = styled(NavLink)`
         border: 2px solid white;
         border-radius: 24px;
     }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+                
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+            
+        }
+        
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+            
+        }
 `;
 
 export const BarWrapper = styled.div`

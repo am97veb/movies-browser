@@ -7,10 +7,12 @@ import {
     Year,
     InfoParagraph,
     ParagraphLabel,
+    MovieGenresMap,
+    MovieGenreTag,
 } from "./styled";
-import { MovieGenres, GenreTag } from "../../../../common/MovieItem/styled";
 import { MovieRating, StarIconStyled, RatingValue, Votes } from "../../../../common/MovieItem/styled";
 import { StyledEmptyPosterPath, StyledEmptyPoster } from "../../../../common/EmptyPoster/styled";
+import { DescriptionContent } from "./styled";
 
 export const DescriptionTile = ({ poster, title, year, production, releaseDate, genres, rating, votes, description }) => (
 
@@ -23,26 +25,28 @@ export const DescriptionTile = ({ poster, title, year, production, releaseDate, 
             </StyledEmptyPoster>
         }
         <Description>
-            <Title>{title}</Title>
-            <Year>{year}</Year>
-            <InfoParagraph>
-                <ParagraphLabel>Production: </ParagraphLabel>
-                {production}
-            </InfoParagraph>
-            <InfoParagraph>
-                <ParagraphLabel>Release date: </ParagraphLabel>
-                {releaseDate}
-            </InfoParagraph>
-            <MovieGenres>
-                {genres && genres.map((genre, index) => (
-                    <GenreTag key={index}>{genre}</GenreTag>
-                ))}
-            </MovieGenres>
-            <MovieRating>
-                <StarIconStyled />
-                <RatingValue>{rating}</RatingValue>
-                <Votes>{votes} votes</Votes>
-            </MovieRating>
+            <DescriptionContent>
+                <Title>{title}</Title>
+                <Year>{year}</Year>
+                <InfoParagraph>
+                    <ParagraphLabel>Production: </ParagraphLabel>
+                    {production}
+                </InfoParagraph>
+                <InfoParagraph>
+                    <ParagraphLabel>Release date: </ParagraphLabel>
+                    {releaseDate}
+                </InfoParagraph>
+                <MovieGenresMap>
+                    {genres && genres.map((genre, index) => (
+                        <MovieGenreTag key={index}>{genre}</MovieGenreTag>
+                    ))}
+                </MovieGenresMap>
+                <MovieRating>
+                    <StarIconStyled />
+                    <RatingValue>{rating}</RatingValue>
+                    <Votes>{votes} votes</Votes>
+                </MovieRating>
+            </DescriptionContent>
             <DescriptionParagraph>{description}</DescriptionParagraph>
         </Description>
     </DescriptionSection>
