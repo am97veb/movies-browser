@@ -2,17 +2,20 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { PersonItem } from "../../../common/PersonItem/index";
 import { Wrapper, Header, PeopleList } from "./styled";
-import { selectPeople } from "../peopleSlice";
+import { selectPeople, selectPeopleStatus } from "../peopleSlice";
 import { Pagination } from "../../../common/Pagination";
 import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
 import { selectSearchResult, selectQuery } from "../searchSlice";
 import { selectPage } from "../../../common/Pagination/paginationSlice";
+import Loading from "../../../common/Navigation/Search/Loading";
 
 export const PopularPeople = () => {
     const query = useQueryParameters(searchQueryParamName);
     const sliceQuery = useSelector(selectQuery);
     const page = useSelector(selectPage);
+    const fetchStatus = useSelector(selectPeopleStatus);
+    console.log(fetchStatus);
 
 
     const people = useSelector(state =>
@@ -29,18 +32,23 @@ export const PopularPeople = () => {
             <Header>
                 Popular people
             </Header>
-            <PeopleList>
-                {Array.isArray(people) &&
-                    people.map(person => (
-                        <PersonItem
-                            key={person.id}
-                            id={person.id}
-                            image={person.profile_path}
-                            name={person.name}
-                        />
-                    ))
-                }
-            </PeopleList>
+            {fetchStatus === "loading"
+                ?
+                <Loading />
+                :
+                <PeopleList>
+                    {Array.isArray(people) &&
+                        people.map(person => (
+                            <PersonItem
+                                key={person.id}
+                                id={person.id}
+                                image={person.profile_path}
+                                name={person.name}
+                            />
+                        ))
+                    }
+                </PeopleList>
+            }
             <Pagination />
         </Wrapper>
     )
