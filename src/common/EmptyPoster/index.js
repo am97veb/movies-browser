@@ -1,15 +1,17 @@
-import { useSelector } from "react-redux"
 import { StyledEmptyPoster, StyledEmptyPosterPath, StyledEmptyProfilePath } from "./styled"
-import { selectContentType } from "../Pagination/paginationSlice"
 import { useLocation } from "react-router-dom";
 
 export const EmptyPoster = () => {
-    const contentType = useSelector(selectContentType);
     const location = useLocation();
 
+    const isMoviePage = location.pathname.includes("movies");
+    const isPersonPage = location.pathname.includes("person");
+    const isCastOrCrewInMoviePage = location.pathname.includes("movies/movie");
+    const isCastOrCrewInPersonPage = location.pathname.includes("people/person");
+
     return (
-        <StyledEmptyPoster $float={location.pathname.includes("person") ? true : false} >
-            {contentType === null || contentType === "movies"
+        <StyledEmptyPoster $float={isPersonPage} >
+            {(isMoviePage || isCastOrCrewInPersonPage) && !isCastOrCrewInMoviePage
                 ?
                 <StyledEmptyPosterPath />
                 :

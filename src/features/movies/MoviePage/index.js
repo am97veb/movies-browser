@@ -8,18 +8,17 @@ import { PersonItem } from "../../../common/PersonItem";
 import { useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import {
-    selectGenres,
     getMovieDetails,
     selectCast,
     selectCrew,
     selectMovieDetails
 } from "../moviesSlice";
-import { mapGenres } from "../../../common/mapGenres";
+import { movieGenres } from "../../../common/mapGenres";
+import { mapNames } from "../../../common/mapNames";
 
 export const MoviePage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const genresList = useSelector(selectGenres);
     const cast = useSelector(selectCast);
     const crew = useSelector(selectCrew);
     const movie = useSelector(selectMovieDetails);
@@ -45,9 +44,9 @@ export const MoviePage = () => {
                     poster={movie.poster_path}
                     title={movie.title}
                     year={movie.release_date.split("-")[0]}
-                    production={movie.production}
+                    production={mapNames(movie.production_countries)}
                     releaseDate={movie.release_date}
-                    genres={mapGenres(movie.genres, genresList)}
+                    genres={movieGenres(movie.genres)}
                     rating={movie.vote_average.toFixed(1)}
                     votes={movie.vote_count}
                     description={movie.overview}
