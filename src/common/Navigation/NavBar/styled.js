@@ -18,6 +18,7 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
     list-style: none;
+
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -27,8 +28,9 @@ export const StyledNavLink = styled(NavLink)`
     font-weight: 600;
     padding: 13.5px 24px;
 
-    &.hover {
-        cursor: pointer;
+    &:hover {
+        border: 1px solid white;
+        border-radius: 24px;
     }
 
     &.active {
