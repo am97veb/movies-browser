@@ -52,9 +52,6 @@ export const PosterInfo = styled.div`
   left: 32px;
   z-index: 3;
   color: white;
-
-  display: flex;
-  flex-direction: column;
   gap: 16px;
 
         @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
@@ -73,12 +70,20 @@ export const PosterInfo = styled.div`
 export const InfoTitle = styled.h1`
   font-size: 64px;
   font-weight: 600;
-  line-height: 77px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 24px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
-        font-size: 24px;
-      }
+          font-size: 32px;
+          margin-bottom: 16px;
+        }
+      @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+          font-size: 24px;
+          margin-bottom: 8px;
+        }
+      @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+          margin-bottom: 4px;
+        }
 `;
 
 export const InfoRating = styled.div`
@@ -88,17 +93,41 @@ export const InfoRating = styled.div`
   gap: 8px;
   font-size: 18px;
   font-weight: 500;
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+            flex-direction: row;
+            align-items: center;
+        }
 `;
 
 export const InfoRatingMain = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+            
+        }  
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+                  flex-direction: row ;
+        }
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        }
 `;
 
 export const InfoRatingStar = styled(StarIconStyled)`
     width: 40px;
-    height: 40px;
+    height: auto;
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+            width: 20px;
+        }  
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+            width: 16px;
+        }
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        }
+
 `;
 
 export const InfoRatingValue = styled(RatingValue)`
@@ -108,10 +137,28 @@ export const InfoRatingValue = styled(RatingValue)`
     letter-spacing: 0px;
     vertical-align: middle;
     color: ${({ theme }) => theme.colors.white};
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+          font-size: 16px;
+        }  
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+          font-size: 14px;
+        }
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        }
 `;
 
 export const InfoRatingScale = styled(InfoRatingValue)`
     font-size: 16px;
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+          font-size: 12px;
+        }  
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+          font-size: 10px;
+        }
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        }
 `;
 
 export const InfoRatingVotes = styled.p`
@@ -119,6 +166,16 @@ export const InfoRatingVotes = styled.p`
     font-size: 16px;
     line-height: 120%;
     vertical-align: middle;
+    margin: 16px 0;
 
     color: ${({ theme }) => theme.colors.white};
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+          font-size: 12px;
+        }  
+        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+          font-size: 10px;
+        }
+        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        }
 `;

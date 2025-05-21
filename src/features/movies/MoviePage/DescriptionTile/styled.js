@@ -3,6 +3,7 @@ import { MovieGenres, GenreTag } from "../../../../common/MovieItem/styled";
 
 export const DescriptionSection = styled.section`
     margin: 16px;
+    margin-bottom: 64px;
     padding: 40px 40px;
     background-color: white;
     gap: 32px;
@@ -47,14 +48,12 @@ export const DescriptionPoster = styled.img`
         }
                 
         @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-            width: 192px;
-            height: auto;
+            width: 152px;
             margin: 0px 16px 8px 0px;
         }
         
         @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
-            width: 156px;
-            height: auto;
+            width: 128px;
             margin: 0px 16px 8px 0px;
         }
 `;
@@ -76,7 +75,7 @@ export const DescriptionParagraph = styled.p`
         font-size: 16px;
     }
 
-     @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+     @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
         font-size: 14px;
         clear: both;
   }
@@ -125,7 +124,7 @@ export const Year = styled.p`
             font-weight: 400px;
             font-size: 13px;
             line-height: 130%;
-            margin: 8px 0;
+            margin: 4px 0 8px 0;
         }
         
         @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
@@ -164,11 +163,11 @@ export const ParagraphLabel = styled.span`
                 
         @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
             font-size: 12px;
+            display: none;
         }
         
         @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
             font-size: 12px;
-            display: none;
         }
 `;
 
@@ -183,12 +182,9 @@ export const MovieGenresMap = styled(MovieGenres)`
                 
         @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
             margin: 8px 0;
-            gap: 8px;
         }
         
         @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
-            margin: 8px 0;
-            gap: 8px;
         }
 `;
 

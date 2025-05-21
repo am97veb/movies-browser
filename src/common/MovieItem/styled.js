@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { ReactComponent as StarIcon } from './StarIcon.svg';
 
 export const MovieCard = styled.li`
-  width: 324px;
+  max-width: 324px;
+  width: 100%;
   height: 700px; 
   border-radius: 5px;
   padding: 16px;
@@ -19,13 +20,26 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
+// export const MovieImageWrapper = styled.div`
+//   width: 292px;
+//   height: 434px;
+//   border-radius: 5px;
+//   overflow: hidden;
+//   position: relative;
+//   align-self: center;
+// `;
+
 export const MovieImageWrapper = styled.div`
-  width: 292px;
+  /* width: 292px; */
+    width: 100%;
   height: 434px;
   border-radius: 5px;
   overflow: hidden;
-  position: relative;
   align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(196, 196, 196, 1);
 `;
 
 export const MovieImage = styled.img`
