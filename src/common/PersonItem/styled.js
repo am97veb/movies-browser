@@ -66,3 +66,12 @@ export const ImageWrapper = styled.div`
     display: flex;
     justify-content: center;
 `;
+
+export const CharacterName = styled.p`
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+    margin: 8px 0 16px ;
+    color: ${({ theme }) => theme.colors.lynch};
+`;

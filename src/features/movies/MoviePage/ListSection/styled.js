@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { List } from "../../../people/PersonPage/ListSection/styled";
 
 export const PeopleSectionStyled = styled.section`
     max-width: 1368px;

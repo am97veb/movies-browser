@@ -59,6 +59,7 @@ export const MoviePage = () => {
                             id={cast.id}
                             image={cast.profile_path}
                             name={cast.name}
+                            character={cast.character}
                         />
                     ))}
                 />
