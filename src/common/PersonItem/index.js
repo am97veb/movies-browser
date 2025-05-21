@@ -1,23 +1,20 @@
-import { StyledPersonItem, StyledLink, Picture, Name } from "./styled";
-import { showPerson } from "../../features/people/PersonPage/personSlice";
-import { useDispatch } from "react-redux";
+import { StyledPersonItem, StyledLink, Picture, Name, ImageWrapper } from "./styled";
 import { EmptyPoster } from "../EmptyPoster";
 
 export const PersonItem = ({ id, image, name }) => {
-    const dispatch = useDispatch();
 
     return (
         <StyledPersonItem>
-            <StyledLink
-                to={`/people/person/${id}`}
-            >
-                {image !== null ?
-                    <Picture
-                        src={`https://image.tmdb.org/t/p/w500${image}`}>
-                    </Picture>
-                    :
-                    <EmptyPoster />
-                }
+            <StyledLink to={`/people/person/${id}`}>
+                <ImageWrapper>
+                    {image !== null ?
+                        <Picture
+                            src={`https://image.tmdb.org/t/p/w500${image}`}>
+                        </Picture>
+                        :
+                        <EmptyPoster />
+                    }
+                </ImageWrapper>
                 <Name>
                     {name}
                 </Name>

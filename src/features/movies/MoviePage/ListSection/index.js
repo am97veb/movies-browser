@@ -1,8 +1,8 @@
-import { Header, SectionStyled, CastAndCrewList } from "./styled";
+import { Header, PeopleSectionStyled, CastAndCrewList } from "./styled";
 
 export const PeopleListSection = ({ headerContent, sectionContent }) => (
-    <SectionStyled>
+    <PeopleSectionStyled>
         <Header>{headerContent}</Header>
         <CastAndCrewList>{sectionContent}</CastAndCrewList>
-    </SectionStyled>
+    </PeopleSectionStyled>
 );
