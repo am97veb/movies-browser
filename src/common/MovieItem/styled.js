@@ -20,18 +20,8 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-// export const MovieImageWrapper = styled.div`
-//   width: 292px;
-//   height: 434px;
-//   border-radius: 5px;
-//   overflow: hidden;
-//   position: relative;
-//   align-self: center;
-// `;
-
 export const MovieImageWrapper = styled.div`
-  /* width: 292px; */
-    width: 100%;
+  width: 100%;
   height: 434px;
   border-radius: 5px;
   overflow: hidden;

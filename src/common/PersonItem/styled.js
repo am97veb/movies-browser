@@ -18,6 +18,7 @@ export const StyledPersonItem = styled.li`
 export const StyledLink = styled(Link)`
     text-decoration: none;
     color: inherit;
+    width: 100%;
 `;
 
 export const Picture = styled.img`
