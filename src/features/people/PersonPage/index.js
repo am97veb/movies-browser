@@ -7,6 +7,8 @@ import MovieItem from "../../../common/MovieItem";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
+import { mapGenres } from "../../../common/mapGenres";
+import { selectGenres } from "../../movies/moviesSlice";
 
 export const PersonPage = () => {
     const person = useSelector(selectPerson);
@@ -14,6 +16,7 @@ export const PersonPage = () => {
     const crew = useSelector(selectCrew);
     const dispatch = useDispatch();
     const { id } = useParams();
+    const genresList = useSelector(selectGenres);
 
     useEffect(() => {
         dispatch(showPerson(id));
@@ -36,9 +39,9 @@ export const PersonPage = () => {
                             title={cast.original_title}
                             character={cast.character}
                             year={cast.release_date}
-                            genres={cast.genres}
+                            genres={mapGenres(cast.genre_ids, genresList)}
                             rating={cast.rating}
-                            votes={cast.vote_average} />
+                            votes={cast.vote_average.toFixed(1)} />
                     ))}
                 />
             }
@@ -53,9 +56,9 @@ export const PersonPage = () => {
                             image={crew.poster_path}
                             title={crew.original_title}
                             year={crew.release_date}
-                            genres={crew.genres}
+                            genres={mapGenres(crew.genre_ids, genresList)}
                             rating={crew.rating}
-                            votes={crew.vote_average} />
+                            votes={crew.vote_average.toFixed(1)} />
                     ))}
                 />
             }
