@@ -1,6 +1,6 @@
 import { Description, Picture, StyledSection, Biography, Name, Wrapper, InnerWrapper, Key, Value, DeletedInMobile, } from "./styled";
 import { dateFormatter } from "../../../../common/dateFormatter";
-import { EmptyPoster } from "../../../../common/EmptyPoster";
+import { StyledEmptyPersonPoster, StyledEmptyPosterPath } from "../../../../common/EmptyPoster/styled";
 
 export const DescriptionTile = ({ person }) => (
     <StyledSection>
@@ -9,7 +9,9 @@ export const DescriptionTile = ({ person }) => (
                 src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}>
             </Picture>
             :
-            <EmptyPoster />
+            <StyledEmptyPersonPoster>
+                <StyledEmptyPosterPath />
+            </StyledEmptyPersonPoster>
         }
         <Description>
             <Name>{person.name} </Name>
