@@ -16,7 +16,7 @@ export const People = () => {
         case "error":
             return <Error />;
         case "loading":
-            return <Loading searchTerm={searchQuery} />
+            return <Loading searchTerm={`Search results for “${searchQuery}”`} />
         case "success":
             if (searchResult.length === 0 && searchQuery !== "") {
                 return <NoResult searchTerm={searchQuery} />
