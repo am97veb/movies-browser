@@ -22,7 +22,6 @@ const personSlice = createSlice({
         fetchFilmographySuccess: (state, { payload: filmography }) => {
             state.filmographyData = filmography;
             state.fetchStatus = "success";
-            console.log(filmography);
         },
         fetchFilmographyError: (state) => {
             state.fetchStatus = "error";

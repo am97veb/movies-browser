@@ -20,18 +20,17 @@ export const MovieListHeading = styled.h1`
 
 export const MovieListGrid = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
+  justify-items: center;
   gap: 24px;
   padding: 0;
   margin: 0 32px 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {
-    grid-template-columns: repeat(2, 1fr);
     margin: 0 24px 32px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
-    grid-template-columns: 1fr;
     gap: 16px;
     margin: 0 16px 24px;
   }

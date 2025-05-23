@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { DescriptionTile } from "./DescriptionTile";
+import { MovieDescriptionTile } from "./DescriptionTile";
 import { PeopleListSection } from "./ListSection";
 import { PosterHeader } from "./PosterHeader";
 import { MoviePageSection } from "./PosterHeader/styled";
@@ -40,7 +40,7 @@ export const MoviePage = () => {
                 votes={movie.vote_count}
             />
             <MoviePageSection>
-                <DescriptionTile
+                <MovieDescriptionTile
                     poster={movie.poster_path}
                     title={movie.title}
                     year={movie.release_date.split("-")[0]}
@@ -51,28 +51,33 @@ export const MoviePage = () => {
                     votes={movie.vote_count}
                     description={movie.overview}
                 />
-                <PeopleListSection
-                    headerContent={"Cast"}
-                    sectionContent={cast && cast.map(cast => (
-                        <PersonItem
-                            key={nanoid()}
-                            id={cast.id}
-                            image={cast.profile_path}
-                            name={cast.name}
-                        />
-                    ))}
-                />
-                <PeopleListSection
-                    headerContent={"Crew"}
-                    sectionContent={crew && crew.map(crew => (
-                        <PersonItem
-                            key={nanoid()}
-                            id={crew.id}
-                            image={crew.profile_path}
-                            name={crew.name}
-                        />
-                    ))}
-                />
+                {cast && cast.length !== 0 &&
+                    < PeopleListSection
+                        headerContent={"Cast"}
+                        sectionContent={cast && cast.map(cast => (
+                            <PersonItem
+                                key={nanoid()}
+                                id={cast.id}
+                                image={cast.profile_path}
+                                name={cast.name}
+                                character={cast.character}
+                            />
+                        ))}
+                    />
+                }
+                {crew && crew.length !== 0 &&
+                    <PeopleListSection
+                        headerContent={"Crew"}
+                        sectionContent={crew && crew.map(crew => (
+                            <PersonItem
+                                key={nanoid()}
+                                id={crew.id}
+                                image={crew.profile_path}
+                                name={crew.name}
+                            />
+                        ))}
+                    />
+                }
             </MoviePageSection>
         </>
     );
