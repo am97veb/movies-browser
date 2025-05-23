@@ -41,7 +41,7 @@ export const {
     fetchPersonError,
     fetchFilmographySuccess,
     fetchFilmographyError,
-    fetchPersonLoading: fetchDataLoading,
+    fetchPersonLoading,
     clear
 } = personSlice.actions;
 export const selectPerson = state => state.person.personData;
