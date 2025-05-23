@@ -10,7 +10,7 @@ import { selectSearchResult, selectQuery } from "../searchSlice";
 import { selectPage } from "../../../common/Pagination/paginationSlice";
 import { SwitchContent } from "../../../common/SwitchContent";
 
-export const PopularPeople = () => {
+export const PopularPeopleList = () => {
    const query = useQueryParameters(searchQueryParamName);
    const sliceQuery = useSelector(selectQuery);
    const page = useSelector(selectPage);
