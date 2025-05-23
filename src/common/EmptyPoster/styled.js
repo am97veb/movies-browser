@@ -14,10 +14,15 @@ export const StyledEmptyPoster = styled.div`
     background-color:rgba(196, 196, 196, 1);
     object-fit: cover;
 
+    @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+        width: 138px;
+        height: 208px;
+        margin-bottom: 8px;
+    }
+
     @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
         width: 120px;
         height: 178px;
-        margin-bottom: 8px;
     }
 `;
 
