@@ -52,7 +52,7 @@ export const Picture = styled.img`
 `;
 
 export const Description = styled.div`
- 
+
 `;
 
 export const Name = styled.h1`
@@ -94,7 +94,6 @@ export const Biography = styled.p`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
         font-size: 14px;
-        clear: both;
     }
  `;
 
@@ -125,15 +124,10 @@ export const InnerWrapper = styled(Wrapper)`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
         font-size: 16px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr auto;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
         font-size: 12px;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-        gap:4px;
     }
 `;
 
