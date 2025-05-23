@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Loading from "../../../common/Navigation/Search/Loading";
 import Error from "../../../common/Navigation/Search/Error";
-import { PopularPeople } from "../PopularPeople";
+import { PopularPeopleList } from "../PopularPeopleList";
 import { selectQuery, selectSearchResult, selectSearchStatus } from "../searchSlice";
 import NoResult from "../../../common/Navigation/Search/NoResult";
 
@@ -12,7 +12,7 @@ export const People = () => {
 
     switch (searchStatus) {
         case "idle":
-            return <PopularPeople />
+            return <PopularPeopleList />
         case "error":
             return <Error />;
         case "loading":
@@ -22,9 +22,9 @@ export const People = () => {
                 return <NoResult searchTerm={searchQuery} />
             }
             else {
-                return <PopularPeople />
+                return <PopularPeopleList />
             }
         default:
-            return <PopularPeople />
+            return <PopularPeopleList />
     }
 };
