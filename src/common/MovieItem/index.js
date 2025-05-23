@@ -11,13 +11,15 @@ import {
   StarIconStyled,
   Votes,
   MovieCharacter,
-  StyledLink
+  StyledLink,
+  AboutMovie
 } from './styled';
 import { onlyYear } from "../dateFormatter";
 import { EmptyPoster } from '../EmptyPoster';
 
 const MovieItem = ({ id, image, title, character, year, genres, rating, votes }) => {
-
+console.log(rating);
+console.log(votes);
   return (
     <MovieCard>
       <StyledLink to={`/movies/movie/${id}`}>
@@ -27,27 +29,30 @@ const MovieItem = ({ id, image, title, character, year, genres, rating, votes })
             :
             <EmptyPoster />}
         </MovieImageWrapper>
-        <MovieTitle>{title}</MovieTitle>
-        {character ?
-          <MovieCharacter>{character} ({onlyYear(year)})</MovieCharacter>
-          :
-          <MovieYear>{onlyYear(year)}</MovieYear>
-        }
-        <MovieGenres>
-          {genres && genres.map((genre, index) => (
-            <GenreTag key={index}>{genre}</GenreTag>
-          ))}
-        </MovieGenres>
-        <MovieRating>
-          {votes > 0 ?
-            <>
-              <StarIconStyled />
-              <RatingValue>{rating}</RatingValue>
-              <Votes>{votes} votes</Votes>
-            </>
+
+        <AboutMovie>
+          <MovieTitle>{title}</MovieTitle>
+          {character ?
+            <MovieCharacter>{character} ({onlyYear(year)})</MovieCharacter>
             :
-             <Votes>No votes</Votes>}
+            <MovieYear>{onlyYear(year)}</MovieYear>
+          }
+          <MovieGenres>
+            {genres && genres.map((genre, index) => (
+              <GenreTag key={index}>{genre}</GenreTag>
+            ))}
+          </MovieGenres>
+          <MovieRating>
+            {votes > 0 ?
+              <>
+                <StarIconStyled />
+                <RatingValue>{rating}</RatingValue>
+                <Votes>{votes} votes</Votes>
+              </>
+              :
+              <Votes>No votes</Votes>}
           </MovieRating>
+        </AboutMovie>
       </StyledLink>
     </MovieCard >
   );
