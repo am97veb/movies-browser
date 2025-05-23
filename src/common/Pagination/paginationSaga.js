@@ -8,7 +8,6 @@ import { fetchSearchHandler } from "../../features/people/searchSaga";
 function* fetchPaginationHandler() {
     try {
         const type = yield select(selectContentType);
-        console.log(type);
         
         if (type === null || type === "movies") {
             yield call(fetchMoviesHandler);
@@ -16,9 +15,7 @@ function* fetchPaginationHandler() {
             yield call(fetchPeopleHandler);
         } else if (type === "person" || type === "movie") {
             yield call(fetchSearchHandler)
-        }
-        ;
-
+        };
     } catch (error) {
         console.error('Error in pagination handler:', error);
     }
