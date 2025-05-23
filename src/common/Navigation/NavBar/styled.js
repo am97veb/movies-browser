@@ -63,6 +63,18 @@ export const Title = styled.div`
     color: white;
     padding: 0;
     margin: 0 0 0 12px;
+    font-size: 24px;
+    font-weight: 500;
+
+
+        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+          font-size: 13px;
+        }
+      @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+          font-size: 13px;
+        }
+      @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        }
 `;
 
 export const VideoSVG = styled(Video)`

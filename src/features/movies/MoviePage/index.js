@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { DescriptionTile } from "./DescriptionTile";
+import { MovieDescriptionTile } from "./DescriptionTile";
 import { PeopleListSection } from "./ListSection";
 import { PosterHeader } from "./PosterHeader";
 import { MoviePageSection } from "./PosterHeader/styled";
@@ -47,7 +47,7 @@ export const MoviePage = () => {
                      votes={movie.vote_count}
                   />
                   <MoviePageSection>
-                     <DescriptionTile
+                     <MovieDescriptionTile
                         poster={movie.poster_path}
                         title={movie.title}
                         year={onlyYear(movie.release_date)}

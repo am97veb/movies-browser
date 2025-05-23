@@ -6,6 +6,7 @@ export const theme = {
         lightSlateGrey: "#7E839A",
         deepLemon: "#FCD420",
         stormGray: "#74788B",
+        lynch: "#627489",
     },
     breakpoints: {
         extraSmall: 320,

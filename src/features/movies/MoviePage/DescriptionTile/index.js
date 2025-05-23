@@ -11,18 +11,19 @@ import {
     MovieGenreTag,
 } from "./styled";
 import { MovieRating, StarIconStyled, RatingValue, Votes } from "../../../../common/MovieItem/styled";
-import { StyledEmptyPosterPath, StyledEmptyPoster } from "../../../../common/EmptyPoster/styled";
+import { StyledEmptyPosterPath } from "../../../../common/EmptyPoster/styled";
 import { DescriptionContent } from "./styled";
+import { StyledEmptyPersonPoster } from "../../../../common/EmptyPoster/styled";
 
-export const DescriptionTile = ({ poster, title, year, production, releaseDate, genres, rating, votes, description }) => (
+export const MovieDescriptionTile = ({ poster, title, year, production, releaseDate, genres, rating, votes, description }) => (
 
     <DescriptionSection>
         {poster !== null ?
             <DescriptionPoster src={`https://image.tmdb.org/t/p/w500${poster}`} />
             :
-            <StyledEmptyPoster>
+            <StyledEmptyPersonPoster>
                 <StyledEmptyPosterPath />
-            </StyledEmptyPoster>
+            </StyledEmptyPersonPoster>
         }
         <Description>
             <DescriptionContent>
