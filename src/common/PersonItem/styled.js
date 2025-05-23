@@ -8,7 +8,7 @@ export const StyledPersonItem = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: ${({theme})=> theme.colors.white};
     border-radius: 5px;
     padding: 20px 20px;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
@@ -38,7 +38,6 @@ export const Picture = styled.img`
     @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
         width: 120px;
         height: 178px;
-        margin-bottom: 8px;
     }
 `;
 
@@ -68,11 +67,19 @@ export const ImageWrapper = styled.div`
     justify-content: center;
 `;
 
-export const CharacterName = styled.p`
+export const Role = styled.p`
     font-size: 18px;
     font-weight: 400;
     line-height: 150%;
     text-align: center;
     margin: 8px 0 16px ;
     color: ${({ theme }) => theme.colors.lynch};
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.large}px) {       
+        font-size: 16px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
+        font-size: 13px;
+    }
 `;
