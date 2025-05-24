@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectSearchStatus, selectQuery, selectSearchResult } from "../../people/searchSlice";
-import MovieList from "../MovieList";
+import MoviesList from "../MoviesList";
 import Error from "../../../common/Navigation/Search/Error";
 import Loading from "../../../common/Navigation/Search/Loading";
 import NoResult from "../../../common/Navigation/Search/NoResult";
@@ -12,19 +12,19 @@ export const Movies = () => {
 
     switch (searchStatus) {
         case "idle":
-            return <MovieList />
+            return <MoviesList />
         case "error":
             return <Error />;
         case "loading":
-            return <Loading searchTerm={searchQuery} />
+            return <Loading searchTerm={`Search results for “${searchQuery}”`} />
         case "success":
             if (searchResult.length === 0 && searchQuery !== "") {
                 return <NoResult searchTerm={searchQuery} />
             }
             else {
-                return <MovieList />
+                return <MoviesList />
             }
         default:
-            return <MovieList />
+            return <MoviesList />
     }
 }

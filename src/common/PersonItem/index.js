@@ -1,7 +1,7 @@
-import { StyledPersonItem, StyledLink, Picture, Name, ImageWrapper, CharacterName } from "./styled";
+import { StyledPersonItem, StyledLink, Picture, Name, ImageWrapper, Role } from "./styled";
 import { EmptyPoster } from "../EmptyPoster";
 
-export const PersonItem = ({ id, image, name, character }) => {
+export const PersonItem = ({ id, image, name, character, department }) => {
 
     return (
         <StyledPersonItem>
@@ -18,11 +18,10 @@ export const PersonItem = ({ id, image, name, character }) => {
                 <Name>
                     {name}
                 </Name>
-                {character &&
-                    <CharacterName>
+                    <Role>
                         {character}
-                    </CharacterName>
-                }
+                        {department}
+                    </Role>
             </StyledLink>
         </StyledPersonItem>
     )
