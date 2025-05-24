@@ -13,7 +13,7 @@ const peopleSlice = createSlice({
             state.peopleData = people.results;
         },
         fetchPeopleLoading: (state) => {
-            state.fetchPeopleStatus = "loading"
+            state.fetchPeopleStatus = "loading";
         },
         fetchPeopleError: (state) => {
             state.fetchPeopleStatus = "error";
@@ -23,6 +23,6 @@ const peopleSlice = createSlice({
 
 export const { showPeople, fetchPeopleSuccess, fetchPeopleLoading, fetchPeopleError } = peopleSlice.actions;
 export const selectPeople = state => state.people.peopleData;
-export const selectPeopleStatus = state => state.people.fetchStatus;
+export const selectPeopleStatus = state => state.people.fetchPeopleStatus;
 
 export default peopleSlice.reducer;
