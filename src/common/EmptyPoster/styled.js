@@ -3,9 +3,10 @@ import { ReactComponent as EmptyProfilePath } from "./emptyProfilePath.svg";
 import { ReactComponent as EmptyPosterPath } from "./emptyPosterPath.svg";
 
 export const StyledEmptyPoster = styled.div`
-    max-width: 214px;
-    height: 321px;
+    max-width: 302px;
+    max-height: 432px;
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,13 +16,13 @@ export const StyledEmptyPoster = styled.div`
     object-fit: cover;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-        width: 154px;
+        max-width: 154px;
         height: 208px;
-        margin-bottom: 8px;
+        margin-bottom: 0px;
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
-        width: 120px;
+        width: 116px;
         height: 178px;
     }
 `;
