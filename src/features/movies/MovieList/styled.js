@@ -20,7 +20,7 @@ export const MovieListHeading = styled.h1`
 
 export const MovieListGrid = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(324px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
   justify-items: center;
   gap: 24px;
   padding: 0;
