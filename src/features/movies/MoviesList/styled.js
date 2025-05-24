@@ -18,7 +18,7 @@ export const MovieListHeading = styled.h1`
   }
 `;
 
-export const MovieList = styled.ul`
+export const StyledMoviesList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
   justify-items: center;
