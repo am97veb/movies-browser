@@ -4,7 +4,7 @@ import { ReactComponent as SpinnerIcon } from "./spinnerIcon.svg";
 const Loading = ({ searchTerm }) => {
   return (
     <Wrapper>
-      <Title>Search results for “{searchTerm}”</Title>
+      <Title>{searchTerm}</Title>
       <SpinnerWrapper>
         <SpinnerIcon />
       </SpinnerWrapper>
