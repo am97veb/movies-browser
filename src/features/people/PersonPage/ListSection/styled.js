@@ -26,13 +26,10 @@ export const Header = styled.header`
 `;
 
 export const List = styled.ul`
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
-        gap: 24px;
-        justify-content: center;
-        padding: 0;
-        margin: 24px 0;
-        list-style: none;
-
-        
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+    gap: 24px;
+    padding: 0;
+    margin: 24px 0;
+    list-style: none; 
 `;
