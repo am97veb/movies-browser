@@ -55,8 +55,10 @@ export const PersonPage = () => {
                               character={cast.character}
                               year={cast.release_date}
                               genres={mapGenres(cast.genre_ids, genresList)}
-                              rating={cast.rating}
-                              votes={cast.vote_average.toFixed(1)} />
+                              rating={cast.vote_average.toFixed(1)}
+                              votes={cast.vote_count}
+                              
+                           />
                         ))}
                      />
                   }
@@ -72,8 +74,9 @@ export const PersonPage = () => {
                               title={crew.original_title}
                               year={crew.release_date}
                               genres={mapGenres(crew.genre_ids, genresList)}
-                              rating={crew.rating}
-                              votes={crew.vote_average.toFixed(1)} />
+                              rating={crew.vote_average.toFixed(1)}
+                              votes={crew.vote_count}
+                               />
                         ))}
                      />
                   }
