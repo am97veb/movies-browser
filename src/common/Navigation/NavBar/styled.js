@@ -13,12 +13,11 @@ export const NavList = styled.ul`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
         gap: 12px;
-        }
+    }
 `;
 
 export const NavItem = styled.li`
     list-style: none;
-
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -39,24 +38,17 @@ export const StyledNavLink = styled(NavLink)`
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
-            font-size: 12px;
-            padding: 8px 12px;
-        }
-                
-        @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-            
-        }
-        
-        @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
-            
-        }
+        font-size: 12px;
+        padding: 8px 12px;
+    }
 `;
 
 export const BarWrapper = styled.div`
     display: flex;
     align-items: center;
     flex: 1;
-    
+    word-break: normal;
+    gap: 12px;
 `;
 
 export const Title = styled.div`
@@ -66,15 +58,12 @@ export const Title = styled.div`
     font-size: 24px;
     font-weight: 500;
 
-
-        @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
-          font-size: 13px;
-        }
-      @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-          font-size: 13px;
-        }
-      @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
-        }
+    @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {
+        font-size: 13px;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
+        font-size: 13px;
+    }
 `;
 
 export const VideoSVG = styled(Video)`
