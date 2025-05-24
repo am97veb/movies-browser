@@ -18,8 +18,7 @@ import { onlyYear } from "../dateFormatter";
 import { EmptyPoster } from '../EmptyPoster';
 
 const MovieItem = ({ id, image, title, character, year, genres, rating, votes }) => {
-console.log(rating);
-console.log(votes);
+
   return (
     <MovieCard>
       <StyledLink to={`/movies/movie/${id}`}>
