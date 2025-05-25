@@ -16,7 +16,6 @@ const searchSlice = createSlice({
         fetchDataSuccess: (state, { payload: searchResults }) => {
             state.searchStatus = "success";
             state.searchResult = searchResults.results;
-            console.log(searchResults);
         },
         fetchDataError: (state) => {
             state.searchStatus = "error";

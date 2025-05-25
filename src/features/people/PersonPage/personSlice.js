@@ -4,14 +4,12 @@ const personSlice = createSlice({
     name: "person",
     initialState: {
         personData: [],
-        personId: null,
         filmographyData: [],
-        fetchStatus: "loading",
+        fetchStatus: "idle",
     },
     reducers: {
-        showPerson: (state, {payload:id}) => {
-            state.personId = id;
-         },
+        showPerson: () => {
+        },
         fetchPersonSuccess: (state, { payload: person }) => {
             state.personData = person;
             state.fetchStatus = "success";
@@ -26,12 +24,28 @@ const personSlice = createSlice({
         fetchFilmographyError: (state) => {
             state.fetchStatus = "error";
         },
+        fetchPersonLoading: (state) => {
+            state.fetchStatus = "loading"
+        },
+        clear: (state) => {
+            state.personData = [];
+            state.filmographyData = [];
+            state.fetchStatus = "idle";
+        }
     },
 })
 
-export const { showPerson, fetchPersonSuccess, fetchPersonError, fetchFilmographySuccess, fetchFilmographyError } = personSlice.actions;
+export const {
+    showPerson,
+    fetchPersonSuccess,
+    fetchPersonError,
+    fetchFilmographySuccess,
+    fetchFilmographyError,
+    fetchPersonLoading,
+    clear
+} = personSlice.actions;
 export const selectPerson = state => state.person.personData;
-export const selectPersonId = state => state.person.personId;
+export const selectFetchPersonStatus = state => state.person.fetchStatus;
 export const selectFilmography = state => state.person.filmographyData;
 export const selectCast = state => selectFilmography(state).cast;
 export const selectCrew = state => selectFilmography(state).crew;

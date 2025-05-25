@@ -1,14 +1,15 @@
-import { put, call, select, takeEvery } from "redux-saga/effects";
-import { all } from "redux-saga/effects";
+import { put, call, select, takeEvery, delay, all, fork } from "redux-saga/effects";
 import { fetchApiData } from "../../fetchApiData";
 import {
   showMovies,
   getMovieDetails,
-  fetchDataSuccess,
+  fetchMoviesSuccess,
   fetchMovieDetailsSuccess,
-  fetchDataError,
+  fetchMoviesError,
   fetchMovieDetailsError,
-  setGenres
+  setGenres,
+  fetchMovieDetailsLoading,
+  fetchMoviesLoading,
 } from "./moviesSlice";
 import { selectContentType, totalPages, selectPage, contentType } from "../../common/Pagination/paginationSlice";
 
@@ -18,16 +19,17 @@ export function* fetchMoviesHandler() {
     if (type !== "movies") {
       yield put(contentType("movies"));
     }
-
+    yield put(fetchMoviesLoading());
+    yield delay(2000);
     const page = yield select(selectPage);
     const sourceApiData = `https://api.themoviedb.org/3/movie/popular?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US&page=${page}`;
     const movies = yield call(fetchApiData, sourceApiData);
 
-    yield put(fetchDataSuccess(movies));
+    yield put(fetchMoviesSuccess(movies));
     yield put(totalPages(movies));
     yield call(fetchGenresHandler);
   } catch (error) {
-    yield put(fetchDataError());
+    yield put(fetchMoviesError());
   }
 }
 
@@ -37,12 +39,14 @@ export function* fetchGenresHandler() {
     const genres = yield call(fetchApiData, genresApiData);
     yield put(setGenres(genres.genres));
   } catch (error) {
-    yield put(fetchDataError());
+    yield put(fetchMoviesError());
   }
 }
 
 export function* fetchMovieDetailsHandler({ payload: id }) {
   try {
+    yield put(fetchMovieDetailsLoading());
+    yield delay(2000);
     const detailsApiData = `https://api.themoviedb.org/3/movie/${id}?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
     const creditsApiData = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
 
@@ -62,7 +66,7 @@ export function* fetchMovieDetailsHandler({ payload: id }) {
 }
 
 export function* moviesSaga() {
-  yield call(fetchMoviesHandler);
+  yield fork(fetchMoviesHandler);
   yield takeEvery(showMovies.type, fetchMoviesHandler);
   yield takeEvery(getMovieDetails.type, fetchMovieDetailsHandler);
 }
