@@ -7,6 +7,8 @@ export const theme = {
         deepLemon: "#FCD420",
         stormGray: "#74788B",
         lynch: "#627489",
+        shadowGrey: "rgba(186, 199, 213, 0.5)",
+        posterGrey: "rgba(196, 196, 196, 1)",
     },
     breakpoints: {
         extraSmall: 320,

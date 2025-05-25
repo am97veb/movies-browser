@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectMovies, selectGenres, selectFetchMoviesStatus } from "../moviesSlice";
 import MovieItem from "../../../common/MovieItem";
 import { Pagination } from "../../../common/Pagination";
-import { MovieListWrapper, MovieListHeading, MovieListGrid } from "./styled";
+import { MovieListWrapper, MovieListHeading, StyledMoviesList } from "./styled";
 import { onlyYear } from "../../../common/dateFormatter";
 import { mapGenres } from "../../../common/mapGenres";
 import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
@@ -12,7 +12,7 @@ import { selectSearchResult, selectQuery } from "../../people/searchSlice";
 import { selectPage } from "../../../common/Pagination/paginationSlice";
 import { SwitchContent } from "../../../common/SwitchContent";
 
-const MovieList = () => {
+const MoviesList = () => {
   const query = useQueryParameters(searchQueryParamName);
   const genresList = useSelector(selectGenres);
   const sliceQuery = useSelector(selectQuery);
@@ -34,7 +34,7 @@ const MovieList = () => {
       <SwitchContent status={fetchStatus}
         content={
           <>
-            <MovieListGrid>
+            <StyledMoviesList>
               {Array.isArray(movies) &&
                 movies.map(movie => (
                   <MovieItem
@@ -49,7 +49,7 @@ const MovieList = () => {
                     votes={movie.vote_count}
                   />
                 ))}
-            </MovieListGrid>
+            </StyledMoviesList>
             <Pagination />
           </>
         } />
@@ -57,4 +57,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default MoviesList;
