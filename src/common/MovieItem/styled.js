@@ -5,7 +5,6 @@ import { ReactComponent as StarIcon } from './StarIcon.svg';
 export const MovieCard = styled.li`
   max-width: 324px;
   width: 100%;
-  max-height: 700px; 
   border-radius: 5px;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.white};
@@ -14,12 +13,10 @@ export const MovieCard = styled.li`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
     max-width: 576px;
-    max-height: 256px;
     padding: 14px 14px 14px 14px;
   }
  
   @media (max-width: ${({ theme }) => theme.breakpoints.extraSmall}px) {
-    height: 201px;
     padding: 14px 8px 14px 14px;
   }
 `;
@@ -42,6 +39,10 @@ export const MovieImageWrapper = styled.div`
   height: 434px;
   border-radius: 5px;
   flex-shrink: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.extraLarge}px) {
+    height: 414px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
     max-width: 26vw;
@@ -80,6 +81,10 @@ export const MovieTitle = styled.h3`
   color: ${({ theme }) => theme.colors.black};
   margin: 0px 0px 8px;
   text-align: left;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.extraLarge}px) {
+    font-size: 20px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
     font-size: 18px;
