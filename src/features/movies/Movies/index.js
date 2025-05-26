@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectSearchStatus, selectQuery, selectSearchResult } from "../../people/searchSlice";
+import { selectSearchStatus, selectQuery, selectSearchResult } from "../../../common/Navigation/Search/searchSlice";
 import MoviesList from "../MoviesList";
 import Error from "../../../common/Navigation/Search/Error";
 import Loading from "../../../common/Navigation/Search/Loading";
