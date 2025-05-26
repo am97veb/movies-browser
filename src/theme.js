@@ -1,7 +1,10 @@
 export const theme = {
     colors: {
         white: "#FFFFFF",
+        whisper: "#F5F5FA",
         black: "#000000",
+        woodsmoke: "#18181B",
+        mineShaft: "#333333",
         brightGrey: "#E4E6F0",
         lightSlateGrey: "#7E839A",
         deepLemon: "#FCD420",
@@ -9,6 +12,9 @@ export const theme = {
         lynch: "#627489",
         shadowGrey: "rgba(186, 199, 213, 0.5)",
         posterGrey: "rgba(196, 196, 196, 1)",
+        scienceBlue: "#0044CC",
+        waterloo: "#7E839A",
+        pattensBlue: "#D6E4FF",
     },
     breakpoints: {
         extraSmall: 320,
