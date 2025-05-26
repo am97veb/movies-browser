@@ -3,7 +3,7 @@ import { nextPage, previousPage, firstPage, lastPage, selectPage, contentType } 
 import { selectContentType } from "./paginationSlice";
 import { fetchMoviesHandler } from "../../features/movies/moviesSaga";
 import { fetchPeopleHandler } from "../../features/people/peopleSaga";
-import { fetchSearchHandler } from "../../features/people/searchSaga";
+import { fetchSearchHandler } from "../Navigation/Search/searchSaga";
 
 function* fetchPaginationHandler() {
     try {

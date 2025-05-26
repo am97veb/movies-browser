@@ -3,7 +3,8 @@ import { moviesSaga } from "../features/movies/moviesSaga";
 import { peopleSaga } from "../features/people/peopleSaga";
 import { paginationSaga } from "../common/Pagination/paginationSaga";
 import { personSaga } from "../features/people/PersonPage/personSaga";
-import { searchSaga } from "../features/people/searchSaga";
+import { searchSaga } from "../common/Navigation/Search/searchSaga";
+import { movieDetailsSaga } from "../features/movies/MoviePage/movieDetailsSaga";
 
 export default function* rootSaga() {
     yield all ([
@@ -12,5 +13,6 @@ export default function* rootSaga() {
         searchSaga(),
         paginationSaga(),
         personSaga(),
+        movieDetailsSaga(),
     ]);
 }

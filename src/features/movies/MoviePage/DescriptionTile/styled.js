@@ -5,7 +5,9 @@ export const DescriptionSection = styled.section`
     margin: 16px;
     margin-bottom: 64px;
     padding: 40px 40px;
-    background-color: white;
+    background-color: ${({ theme }) => theme.colors.white};
+    box-shadow: 0px 4px 12px 0px ${({ theme }) => theme.colors.shadowGrey};
+
     gap: 32px;
 
     &::after {
@@ -37,6 +39,7 @@ export const DescriptionPoster = styled.img`
     max-width: 312px;
     min-width: 114px;
     margin: 0px 40px 20px 0px;
+    border-radius: 5px;
 
     object-fit: cover;
     float: left;

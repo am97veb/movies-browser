@@ -5,7 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { LoupeSVG } from "./styled";
 import { usePlaceholder, useQueryParameters, useReplaceQueryParameter } from "./queryParameters";
 import searchQueryParamName from "./searchQueryParamName";
-import { clearSearch, newSearch } from "../../../features/people/searchSlice";
+import { clearSearch, newSearch } from "./searchSlice";
 import { useDispatch } from "react-redux";
 import { showPeople } from "../../../features/people/peopleSlice";
 import { contentType } from "../../Pagination/paginationSlice";

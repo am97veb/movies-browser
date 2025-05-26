@@ -6,7 +6,7 @@ export const Message = styled.h2`
   font-size: 36px;
   line-height: 1.2;
   text-align: center;
-  color: #000;
+  color: ${({ theme }) => theme.colors.black};
   max-width: 674px;
   margin: 150px auto 0 auto; 
 `;

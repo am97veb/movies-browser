@@ -4,8 +4,8 @@ export const StyledSection = styled.section`
     max-width: 1368px;
     margin: 56px 16px 64px;
     padding: 40px;
-    background-color: white;
-    color: rgba(0, 0, 0, 1); 
+    background-color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black}; 
     
     &::after {
         content: "";
@@ -132,7 +132,7 @@ export const InnerWrapper = styled(Wrapper)`
 `;
 
 export const Key = styled.dt`
-    color: rgba(116, 120, 139, 1);
+    color:${({ theme }) => theme.colors.lynch};
     margin-right: 10px;
     
     &::first-letter{
@@ -140,7 +140,7 @@ export const Key = styled.dt`
     }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
-    margin-right: 4px;    
+        margin-right: 4px;    
     }
  `;
 

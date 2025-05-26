@@ -27,8 +27,8 @@ export const Description = styled.p`
 
 export const Button = styled.a`
   display: inline-block;
-  background-color: rgba(0, 68, 204, 1);
-  color: white;
+  background-color: ${({ theme }) => theme.colors.scienceBlue};
+  color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
   font-weight: 700;
   font-size: 14px;

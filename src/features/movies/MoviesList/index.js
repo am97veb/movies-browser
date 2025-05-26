@@ -8,7 +8,7 @@ import { onlyYear } from "../../../common/dateFormatter";
 import { mapGenres } from "../../../common/mapGenres";
 import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
-import { selectSearchResult, selectQuery } from "../../people/searchSlice";
+import { selectSearchResult, selectQuery } from "../../../common/Navigation/Search/searchSlice";
 import { selectPage } from "../../../common/Pagination/paginationSlice";
 import { SwitchContent } from "../../../common/SwitchContent";
 

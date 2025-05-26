@@ -6,7 +6,7 @@ import { selectPeople, selectPeopleStatus } from "../peopleSlice";
 import { Pagination } from "../../../common/Pagination";
 import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
-import { selectSearchResult, selectQuery } from "../searchSlice";
+import { selectSearchResult, selectQuery } from "../../../common/Navigation/Search/searchSlice";
 import { selectPage } from "../../../common/Pagination/paginationSlice";
 import { SwitchContent } from "../../../common/SwitchContent";
 

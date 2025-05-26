@@ -21,19 +21,19 @@ export const NavItem = styled.li`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
     padding: 13.5px 24px;
 
     &:hover {
-        border: 1px solid white;
+        border: 1px solid ${({ theme }) => theme.colors.white};
         border-radius: 24px;
     }
 
     &.active {
-        border: 2px solid white;
+        border: 2px solid ${({ theme }) => theme.colors.white};
         border-radius: 24px;
     }
 
@@ -52,7 +52,7 @@ export const BarWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-    color: white;
+    color: ${({ theme }) => theme.colors.white};
     padding: 0;
     margin: 0 0 0 12px;
     font-size: 24px;
