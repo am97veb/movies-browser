@@ -4,7 +4,8 @@
 
 ## 🚀 Demo
 
-Check out the live demo here: [MoviesBrowser Demo]()
+Check out the live demo here: [Movies Browser](https://am97veb.github.io/movies-browser/
+)
 
 
 ## 🔍 Features
