@@ -5,7 +5,7 @@ export const StyledNav = styled.nav`
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: black;
+    background-color: ${({ theme }) => theme.colors.black};
     padding: 23px 32px;
     margin: 0 auto;
 `;
