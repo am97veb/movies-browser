@@ -13,11 +13,12 @@ The project was developed collaboratively using an organized and agile approach:
 
 - **Scrum methodology** – development was structured in short sprints with regular planning and reviews  
 - **Trello** – used for managing tasks and tracking progress  
-- **Version control:**
+- **Version control Git:**
+  - Remote repository on GitHub
   - Separate branches for each feature  
   - Pull requests used to merge code  
   - Code reviews conducted for quality assurance  
-  - GitHub
+  
 
 ## 🔗 Repository
 
