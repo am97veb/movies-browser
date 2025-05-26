@@ -25,19 +25,18 @@ export const StyledList = styled.ul`
 `;
 
 export const Button = styled.li`
-    background-color: rgba(214, 228, 255, 1);
-    color: rgba(51, 51, 51, 1);
+    background-color:${({ theme }) => theme.colors.pattensBlue};
+    color: ${({ theme }) => theme.colors.mineShaft};
     border-radius: 5px;
     padding: 8px 16px;
 
     ${({ disabled }) => disabled && css`
-        background-color: rgba(228, 230, 240, 1);
-        color: rgba(24, 24, 27, 1);
+        background-color: ${({ theme }) => theme.colors.brightGrey};
+        color: ${({ theme }) => theme.colors.woodsmoke};
     `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
         padding: 8px 12px;
-        
     }
 `;
 
@@ -55,7 +54,7 @@ export const Link = styled.a`
 `;
 
 export const Text = styled.p`
-    color: rgba(98, 116, 137, 1);
+    color: ${({ theme }) => theme.colors.lynch};
     margin: 0px 14px;
     display: flex;
     gap:8px;
@@ -72,15 +71,15 @@ export const Text = styled.p`
 `;
 
 export const Page = styled.span`
-    color: rgba(24, 24, 27, 1);
+    color: ${({ theme }) => theme.colors.woodsmoke};
     font-weight: 600;
 `;
 
 export const LeftArrow = styled(Arrow)`
-    color:rgba(0, 68, 204, 1);
+    color:${({ theme }) => theme.colors.scienceBlue};
 
     ${({ disabled }) => disabled && css`
-        color: rgba(126, 131, 154, 1);
+        color: ${({ theme }) => theme.colors.waterloo};
     `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {
@@ -102,10 +101,10 @@ export const MobileLeftArrow = styled(LeftArrow)`
 
 export const RightArrow = styled(Arrow)`
     rotate: 0.5turn;
-    color: rgba(0, 68, 204, 1);
+    color: ${({ theme }) => theme.colors.scienceBlue};
 
     ${({ disabled }) => disabled && css`
-        color: rgba(126, 131, 154, 1);
+        color: ${({ theme }) => theme.colors.waterloo};
     `}
 
     @media (max-width: ${({ theme }) => theme.breakpoints.small}px) {

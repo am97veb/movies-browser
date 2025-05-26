@@ -1,9 +1,9 @@
 import { takeLatest, delay, select, } from "redux-saga/effects";
-import { fetchApiData } from "../../fetchApiData";
+import { fetchApiData } from "../../../fetchApiData";
 import { newSearch, fetchDataSuccess, fetchDataError } from "./searchSlice";
 import { call, put } from "redux-saga/effects";
-import { totalPages } from "../../common/Pagination/paginationSlice";
-import { selectContentType, selectPage } from "../../common/Pagination/paginationSlice";
+import { totalPages } from "../../Pagination/paginationSlice";
+import { selectContentType, selectPage } from "../../Pagination/paginationSlice";
 import { selectQuery } from "./searchSlice";
 
 export function* fetchSearchHandler(action = {}) {

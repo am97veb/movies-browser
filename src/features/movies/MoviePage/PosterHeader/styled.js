@@ -12,7 +12,7 @@ export const BackgroundContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.black};
 
     &::before {
     content: "";
@@ -51,7 +51,7 @@ export const PosterInfo = styled.div`
   bottom: 32px;
   left: 32px;
   z-index: 3;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   gap: 16px;
 
         @media (max-width: ${({ theme }) => theme.breakpoints.medium}px) {

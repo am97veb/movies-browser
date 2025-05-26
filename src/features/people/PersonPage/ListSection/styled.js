@@ -27,7 +27,7 @@ export const Header = styled.header`
 
 export const List = styled.ul`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
     gap: 24px;
     padding: 0;
     margin: 24px 0;

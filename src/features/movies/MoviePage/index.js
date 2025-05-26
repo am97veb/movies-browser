@@ -14,7 +14,7 @@ import {
    selectFetchMovieDetailsStatus,
    selectMovieDetails,
    clear,
-} from "../moviesSlice";
+} from "./movieDetailsSlice";
 import { movieGenres } from "../../../common/mapGenres";
 import { mapNames } from "../../../common/mapNames";
 import { SwitchContent } from "../../../common/SwitchContent";
@@ -28,6 +28,7 @@ export const MoviePage = () => {
    const crew = useSelector(selectCrew);
    const movie = useSelector(selectMovieDetails);
    const fetchStatus = useSelector(selectFetchMovieDetailsStatus);
+   
 
    useClearData({ clear });
 
