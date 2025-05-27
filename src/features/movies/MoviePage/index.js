@@ -28,7 +28,7 @@ export const MoviePage = () => {
    const crew = useSelector(selectCrew);
    const movie = useSelector(selectMovieDetails);
    const fetchStatus = useSelector(selectFetchMovieDetailsStatus);
-   console.log(cast)
+   
 
    useClearData({ clear });
 

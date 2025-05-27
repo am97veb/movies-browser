@@ -1,11 +1,35 @@
 # 🎬 MoviesBrowser
 
-**MoviesBrowser** is a responsive web application built using **React** and **JavaScript**, which allows users to browse, search, and explore detailed information about movies and actors. The application integrates with the **TMDB API** to fetch real-time data, including posters, genres, ratings, and actor biographies.
+
+**MoviesBrowser** is a responsive web application built using **JavaScript** and **React**, which allows users to browse, search, and explore detailed information about movies and actors. The application integrates with the **TMDB API** to fetch real-time data, including posters, genres, ratings, and actor biographies.
 
 ## 🚀 Demo
 
-Check out the live demo here: [Movies Browser](https://am97veb.github.io/movies-browser/
-)
+Check out the live demo here: [Movies Browser](https://am97veb.github.io/movies-browser/)
+
+## 👥 Team Members
+
+- 👤 [Adrian Markefka](https://github.com/am97veb)
+- 👤 [Marcin Osojca](https://github.com/Mikoli09)
+- 👤 [Joanna Górniak](https://github.com/Joanna2307)  
+
+## 🧠 Project Management & Workflow
+
+The project was developed collaboratively using an organized and agile approach:
+
+- **Scrum methodology** – development was structured in short sprints with regular planning and reviews  
+- **Trello** – used for managing tasks and tracking progress  
+- **Version control Git:**
+  - Remote repository on GitHub
+  - Separate branches for each feature  
+  - Pull requests used to merge code  
+  - Code reviews conducted for quality assurance  
+  
+
+## 🔗 Repository
+
+GitHub: [https://github.com/am97veb/movies-browser](https://github.com/am97veb/movies-browser)
+
 
 
 ## 🔍 Features
@@ -95,26 +119,8 @@ To run the project locally, follow these steps:
 
    http://localhost:3000
 
-   ## 👥 Team Members
 
-- 👤 [Adrian Markefka](https://github.com/am97veb)
-- 👤 [Marcin Osojca](https://github.com/Mikoli09)
-- 👤 [Joanna Górniak](https://github.com/Joanna2307)  
 
-## 🧠 Project Management & Workflow
-
-The project was developed collaboratively using an organized and agile approach:
-
-- **Scrum methodology** – development was structured in short sprints with regular planning and reviews  
-- **Trello** – used for managing tasks and tracking progress  
-- **Version control:**
-  - Separate branches for each feature  
-  - Pull requests used to merge code  
-  - Code reviews conducted for quality assurance  
-
-## 🔗 Repository
-
-GitHub: [https://github.com/am97veb/movies-browser](https://github.com/am97veb/movies-browser)
 
 
 ### `npm start`
