@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const IconWrapper = styled.div`
   width: 120px;
   height: 120px;
-  margin: 40px auto 24px;
+  margin: 180px auto 24px;
 `;
 
 export const Message = styled.h1`
-  
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
@@ -16,7 +15,6 @@ export const Message = styled.h1`
 `;
 
 export const Description = styled.p`
-  
   font-weight: 500;
   font-size: 22px;
   line-height: 130%;
@@ -26,7 +24,9 @@ export const Description = styled.p`
 `;
 
 export const Button = styled.a`
-  display: inline-block;
+  display: block;
+  max-width: 186px;
+  margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.scienceBlue};
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
@@ -35,5 +35,4 @@ export const Button = styled.a`
   line-height: 19px;
   padding: 16px 24px;
   border-radius: 5px;
-  text-align: center;
 `;
