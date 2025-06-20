@@ -6,14 +6,15 @@ import {
   fetchMovieDetailsError,
   fetchMovieDetailsLoading,
 } from "./movieDetailsSlice";
-import { delayTime } from "../../../common/delayTime";
+import { loadingTime } from "../../../common/loadingTime";
+import { API_URL, API_KEY, API_DATA_LANGUAGE } from "../../../core/apiData";
 
 export function* fetchMovieDetailsHandler({ payload: id }) {
   try {
     yield put(fetchMovieDetailsLoading());
-    yield delay(delayTime);
-    const detailsApiData = `https://api.themoviedb.org/3/movie/${id}?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
-    const creditsApiData = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
+    yield delay(loadingTime);
+    const detailsApiData = `${API_URL}/movie/${id}?${API_KEY}${API_DATA_LANGUAGE}`;
+    const creditsApiData = `${API_URL}/movie/${id}/credits?${API_KEY}${API_DATA_LANGUAGE}`;
 
     const [movieDetails, credits] = yield all([
       call(fetchApiData, detailsApiData),
