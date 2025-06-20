@@ -1,11 +1,12 @@
 import { StyledPersonItem, StyledLink, Picture, Name, ImageWrapper, Role } from "./styled";
 import { EmptyPoster } from "../EmptyPoster";
+import { toPersonDetails } from "../../core/routes";
 
 export const PersonItem = ({ id, image, name, character, department }) => {
-
+    console.log(id);
     return (
         <StyledPersonItem>
-            <StyledLink to={`/people/person/${id}`}>
+            <StyledLink to={toPersonDetails(id)}>
                 <ImageWrapper>
                     {image !== null ?
                         <Picture

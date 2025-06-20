@@ -5,17 +5,18 @@ import { PersonPage } from "../../features/people/PersonPage";
 import { People } from "../../features/people/People";
 import { ScrollToTop } from "../../scrollToTop";
 import { Movies } from "../../features/movies/Movies";
+import { toMovieDetails, toMovies, toPeople, toPersonDetails } from "../routes";
 
 export default () => (
   <HashRouter>
     <ScrollToTop />
     <Navigation />
     <Routes>
-      <Route path="/movies" element={<Movies />} />
-      <Route path="/movies/movie/:id" element={<MoviePage />} />
-      <Route path="/people" element={<People />} />
-      <Route path="/people/person/:id" element={<PersonPage />} />
-      <Route path="/" element={<Navigate to="/movies" />} />
+      <Route path={toMovies()} element={<Movies />} />
+      <Route path={toMovieDetails(":id")} element={<MoviePage />} />
+      <Route path={toPeople()} element={<People />} />
+      <Route path={toPersonDetails(":id")} element={<PersonPage />} />
+      <Route path="/" element={<Navigate to={toMovies()} />} />
     </Routes>
   </HashRouter>
 );
