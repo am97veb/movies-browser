@@ -26,14 +26,13 @@ export const PopularPeopleList = () => {
    }, [page])
 
    return (
-      <Wrapper>
-         <Header>
-            Popular people
-         </Header>
-         <SwitchContent
-            status={fetchStatus}
-            content={
-               <>
+      <SwitchContent
+         status={fetchStatus}
+         content={
+               <Wrapper>
+                  <Header>
+                     Popular people
+                  </Header>
                   <PeopleList>
                      {Array.isArray(people) &&
                         people.map(person => (
@@ -47,9 +46,8 @@ export const PopularPeopleList = () => {
                      }
                   </PeopleList>
                   <Pagination />
-               </>
-            }
-         />
-      </Wrapper>
+               </Wrapper>
+         }
+      />
    )
 }
