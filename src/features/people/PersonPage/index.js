@@ -10,7 +10,7 @@ import {
    showPerson,
    clear
 } from "./personSlice";
-import MovieItem from "../../../common/MovieItem";
+import {MovieItem} from "../../../common/MovieItem";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
@@ -86,4 +86,3 @@ export const PersonPage = () => {
       </PersonPageSection>
    );
 };
-

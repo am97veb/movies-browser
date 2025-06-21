@@ -7,15 +7,16 @@ import {
   setGenres,
   fetchMoviesLoading,
 } from "./moviesSlice";
-import { selectContentType, totalPages, selectPage, contentType } from "../../common/Pagination/paginationSlice";
-import { delayTime } from "../../common/delayTime"
+import { totalPages, selectPage } from "../../common/Pagination/paginationSlice";
+import { loadingTime } from "../../common/loadingTime"
+import { API_DATA_LANGUAGE, API_KEY, API_URL } from "../../core/apiData";
 
 export function* fetchMoviesHandler() {
   try {
     yield put(fetchMoviesLoading());
-    yield delay(delayTime);
+    yield delay(loadingTime);
     const page = yield select(selectPage);
-    const sourceApiData = `https://api.themoviedb.org/3/movie/popular?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US&page=${page}`;
+    const sourceApiData = `${API_URL}/movie/popular?${API_KEY}${API_DATA_LANGUAGE}&page=${page}`;
     const movies = yield call(fetchApiData, sourceApiData);
 
     yield put(fetchMoviesSuccess(movies));
@@ -28,7 +29,7 @@ export function* fetchMoviesHandler() {
 
 export function* fetchGenresHandler() {
   try {
-    const genresApiData = `https://api.themoviedb.org/3/genre/movie/list?api_key=6007bf485fd1645cfc7ab81654ba3228&language=en-US`;
+    const genresApiData = `${API_URL}/genre/movie/list?${API_KEY}${API_DATA_LANGUAGE}`;
     const genres = yield call(fetchApiData, genresApiData);
     yield put(setGenres(genres.genres));
   } catch (error) {
