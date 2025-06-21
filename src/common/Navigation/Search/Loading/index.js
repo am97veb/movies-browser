@@ -1,8 +1,7 @@
 import { Wrapper, Title, SpinnerWrapper } from "./styled";
 import { ReactComponent as SpinnerIcon } from "./spinnerIcon.svg";
 
-const Loading = ({ searchTerm }) => {
-  return (
+export const Loading = ({ searchTerm }) => (
     <Wrapper>
       <Title>{searchTerm}</Title>
       <SpinnerWrapper>
@@ -10,6 +9,3 @@ const Loading = ({ searchTerm }) => {
       </SpinnerWrapper>
     </Wrapper>
   );
-};
-
-export default Loading;

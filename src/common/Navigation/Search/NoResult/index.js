@@ -1,8 +1,7 @@
 import { Message, IconWrapper } from './styled';
 import { ReactComponent as NoResultIcon } from './NoResultIcon.svg';
 
-const NoResult = ({ searchTerm }) => {
-  return (
+export const NoResult = ({ searchTerm }) =>  (
     <>
       <Message>Sorry, there are no results for “{searchTerm}”</Message>
       <IconWrapper>
@@ -10,7 +9,3 @@ const NoResult = ({ searchTerm }) => {
       </IconWrapper>
     </>
   );
-};
-
-export default NoResult;
-

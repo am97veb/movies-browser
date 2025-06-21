@@ -6,7 +6,7 @@ import {
 } from "./styled";
 import { ReactComponent as ErrorIcon } from "./ErrorIcon.svg";
 
-const Error = () => (
+export const Error = () => (
   <>
     <IconWrapper>
       <ErrorIcon />
@@ -18,6 +18,3 @@ const Error = () => (
     <Button href="/">Back to home page</Button>
   </>
 );
-
-export default Error;
-
