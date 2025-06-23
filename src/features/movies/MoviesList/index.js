@@ -12,7 +12,7 @@ import { selectSearchResult, selectQuery } from "../../../common/Navigation/Sear
 import { selectPage } from "../../../common/Pagination/paginationSlice";
 import { SwitchContent } from "../../../common/SwitchContent";
 
-export const MoviesList = () => {
+export const MoviesList = ({ searchTerm }) => {
   const query = useQueryParameters(searchQueryParamName);
   const genresList = useSelector(selectGenres);
   const sliceQuery = useSelector(selectQuery);
@@ -32,7 +32,7 @@ export const MoviesList = () => {
     <SwitchContent status={fetchStatus}
       content={
         <MovieListWrapper>
-          <MovieListHeading>Popular Movies</MovieListHeading>
+          <MovieListHeading>{searchTerm || "Popular Movies"}</MovieListHeading>
           <StyledMoviesList>
             {Array.isArray(movies) &&
               movies.map(movie => (
@@ -51,7 +51,7 @@ export const MoviesList = () => {
           </StyledMoviesList>
           <Pagination />
         </MovieListWrapper>
-      } />
-
+      }
+    />
   );
 };
