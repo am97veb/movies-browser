@@ -9,6 +9,7 @@ export const Movies = () => {
     const searchStatus = useSelector(selectSearchStatus);
     const searchQuery = useSelector(selectQuery);
     const searchResult = useSelector(selectSearchResult);
+    const totalResult = searchResult.length;
 
     switch (searchStatus) {
         case "error":
@@ -20,7 +21,7 @@ export const Movies = () => {
                 return <NoResult searchTerm={searchQuery} />
             }
             else {
-                return <MoviesList />
+                return <MoviesList searchTerm={`Search results for “${searchQuery}” (${totalResult})`} />
             }
         default:
             return <MoviesList />
