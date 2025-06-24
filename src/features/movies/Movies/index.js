@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectSearchStatus, selectQuery, selectSearchResult } from "../../../common/Navigation/Search/searchSlice";
+import { selectSearchStatus, selectQuery, selectSearchResult, selectTotalResults } from "../../../common/Navigation/Search/searchSlice";
 import { MoviesList } from "../MoviesList";
 import { Error } from "../../../common/Navigation/Search/Error";
 import { Loading } from "../../../common/Navigation/Search/Loading";
@@ -9,7 +9,7 @@ export const Movies = () => {
     const searchStatus = useSelector(selectSearchStatus);
     const searchQuery = useSelector(selectQuery);
     const searchResult = useSelector(selectSearchResult);
-    const totalResult = searchResult.length;
+    const totalResult = useSelector(selectTotalResults);
 
     switch (searchStatus) {
         case "error":
@@ -17,12 +17,16 @@ export const Movies = () => {
         case "loading":
             return <Loading searchTerm={`Search results for “${searchQuery}”`} />
         case "success":
-            if (searchResult.length === 0 && searchQuery !== "") {
-                return <NoResult searchTerm={searchQuery} />
-            }
-            else {
-                return <MoviesList searchTerm={`Search results for “${searchQuery}” (${totalResult})`} />
-            }
+            return (searchResult.length === 0 && searchQuery !== "")
+                ?
+                <NoResult searchTerm={searchQuery} />
+                :
+                (searchResult.length > 0 && searchQuery !== "")
+                    ?
+                    <MoviesList searchTerm={`Search results for “${searchQuery}” (${totalResult})`} />
+                    :
+                    <MoviesList />
+
         default:
             return <MoviesList />
     }
