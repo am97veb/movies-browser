@@ -6,6 +6,7 @@ const searchSlice = createSlice({
         searchResult: {},
         searchStatus: "idle",
         query: "",
+        totalResult: "idle",
     },
     reducers: {
         newSearch: (state, { payload: { trimmedValue } }) => {
@@ -16,6 +17,7 @@ const searchSlice = createSlice({
         fetchDataSuccess: (state, { payload: searchResults }) => {
             state.searchStatus = "success";
             state.searchResult = searchResults.results;
+            state.totalResult = searchResults.total_results;
         },
         fetchDataError: (state) => {
             state.searchStatus = "error";
@@ -31,6 +33,7 @@ const searchSlice = createSlice({
 
 export const { newSearch, fetchDataSuccess, fetchDataError, clearSearch} = searchSlice.actions;
 export const selectSearchResult = state => state.search.searchResult;
+export const selectTotalResults = state => state.search.totalResult;
 export const selectSearchStatus = state => state.search.searchStatus;
 export const selectQuery = state => state.search.query;
 
