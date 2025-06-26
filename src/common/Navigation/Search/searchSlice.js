@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const searchSlice = createSlice({
     name: "search",
     initialState: {
-        searchResult: {},
+        searchResult: null,
         searchStatus: "idle",
         query: "",
         totalResult: "idle",
@@ -11,8 +11,11 @@ const searchSlice = createSlice({
     reducers: {
         newSearch: (state, { payload: { trimmedValue } }) => {
             state.query = trimmedValue;
-            state.searchStatus = "loading";
             state.searchResult = {};
+        },
+        fetchDataLoading: (state) => {
+            state.searchStatus = "loading";
+
         },
         fetchDataSuccess: (state, { payload: searchResults }) => {
             state.searchStatus = "success";
@@ -23,15 +26,15 @@ const searchSlice = createSlice({
             state.searchStatus = "error";
         },
         clearSearch: (state) => {
+            state.searchResult = null;
+            state.searchStatus = "idle";
             state.query = "";
-            state.status = "idle";
-            state.results = {};
-            state.placeholder = "";
+            state.totalResult = "idle";
         },
     },
 });
 
-export const { newSearch, fetchDataSuccess, fetchDataError, clearSearch} = searchSlice.actions;
+export const { newSearch, fetchDataLoading, fetchDataSuccess, fetchDataError, clearSearch } = searchSlice.actions;
 export const selectSearchResult = state => state.search.searchResult;
 export const selectTotalResults = state => state.search.totalResult;
 export const selectSearchStatus = state => state.search.searchStatus;
