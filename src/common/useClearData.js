@@ -5,6 +5,10 @@ export const useClearData = ({ clear }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        return () => dispatch(clear());
-    }, []);
+        return () => {
+            if (typeof clear === 'function') {
+                dispatch(clear());
+            }
+        };
+    }, [dispatch, clear]);
 }
