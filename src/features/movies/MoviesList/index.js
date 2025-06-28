@@ -1,23 +1,30 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectMovies, selectGenres, selectFetchMoviesStatus } from "../moviesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMovies, selectGenres, selectFetchMoviesStatus} from "../moviesSlice";
 import { MovieItem } from "../../../common/MovieItem";
 import { Pagination } from "../../../common/Pagination";
 import { MovieListWrapper, MovieListHeading, StyledMoviesList } from "./styled";
 import { onlyYear } from "../../../common/dateFormatter";
 import { mapGenres } from "../../../common/mapGenres";
-import { useQueryParameters } from "../../../common/Navigation/Search/queryParameters";
+import { useQueryParameters, useReplaceQueryParameter } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
-import { selectSearchResult, selectQuery } from "../../../common/Navigation/Search/searchSlice";
-import { selectPage } from "../../../common/Pagination/paginationSlice";
+import { selectSearchResult, selectQuery, clearSearch, selectSearchStatus } from "../../../common/Navigation/Search/searchSlice";
+import { selectPage, setPage } from "../../../common/Pagination/paginationSlice";
 import { SwitchContent } from "../../../common/SwitchContent";
 
 export const MoviesList = ({ searchTerm }) => {
-  const query = useQueryParameters(searchQueryParamName);
   const genresList = useSelector(selectGenres);
   const sliceQuery = useSelector(selectQuery);
   const page = useSelector(selectPage);
-  const fetchStatus = useSelector(selectFetchMoviesStatus);
+  const dispatch = useDispatch();
+  const setUrl = useReplaceQueryParameter();
+  const query = useQueryParameters(searchQueryParamName);
+  const pageFromUrl = useQueryParameters("page");
+
+  const fetchStatus = useSelector(state =>
+    (query?.trim() && query === sliceQuery)
+      ? selectSearchStatus(state)
+      : selectFetchMoviesStatus(state));
 
   const movies = useSelector(state =>
     (query?.trim() && query === sliceQuery)
@@ -25,7 +32,20 @@ export const MoviesList = ({ searchTerm }) => {
       : selectMovies(state));
 
   useEffect(() => {
+    const pageFromUrlToNumber = pageFromUrl ? parseInt(pageFromUrl) : 1;
+
+    if (page !== pageFromUrlToNumber) {
+      dispatch(setPage(pageFromUrlToNumber));
+    }
+  }, [pageFromUrl, dispatch])
+
+  useEffect(() => {
     window.scrollTo(0, 0);
+
+    setUrl({
+      key: "page",
+      value: page > 1 ? page : null,
+    });
   }, [page])
 
   return (
