@@ -7,15 +7,19 @@ import {
   setGenres,
   fetchMoviesLoading,
 } from "./moviesSlice";
-import { totalPages, selectPage } from "../../common/Pagination/paginationSlice";
+import { totalPages, selectPage, contentType, selectContentType } from "../../common/Pagination/paginationSlice";
 import { loadingTime } from "../../common/loadingTime"
 import { API_DATA_LANGUAGE, API_KEY, API_URL } from "../../core/apiData";
 
 export function* fetchMoviesHandler() {
   try {
     yield put(fetchMoviesLoading());
+    const currentContentType  = yield select(selectContentType);
+    if (currentContentType  !== "movies") {
+      yield put(contentType("movies"))
+    }
     yield delay(loadingTime);
-    const page = yield select(selectPage);
+    const page = yield select(selectPage); 
     const sourceApiData = `${API_URL}/movie/popular?${API_KEY}${API_DATA_LANGUAGE}&page=${page}`;
     const movies = yield call(fetchApiData, sourceApiData);
 

@@ -1,4 +1,4 @@
-import { put, call, takeEvery, delay, all } from "redux-saga/effects";
+import { put, call, takeEvery, delay, all, select } from "redux-saga/effects";
 import { fetchApiData } from "../../../fetchApiData";
 import {
   getMovieDetails,
@@ -8,11 +8,16 @@ import {
 } from "./movieDetailsSlice";
 import { loadingTime } from "../../../common/loadingTime";
 import { API_URL, API_KEY, API_DATA_LANGUAGE } from "../../../core/apiData";
+import { contentType, selectContentType } from "../../../common/Pagination/paginationSlice";
 
 export function* fetchMovieDetailsHandler({ payload: id }) {
   try {
     yield put(fetchMovieDetailsLoading());
     yield delay(loadingTime);
+    const currentContentType = yield select(selectContentType);
+        if (currentContentType !== "movie") {
+            yield put(contentType("movie"));
+        };
     const detailsApiData = `${API_URL}/movie/${id}?${API_KEY}${API_DATA_LANGUAGE}`;
     const creditsApiData = `${API_URL}/movie/${id}/credits?${API_KEY}${API_DATA_LANGUAGE}`;
 
