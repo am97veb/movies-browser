@@ -1,49 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { StyledPagination, Button, StyledList, Text, Page, LeftArrow, RightArrow, Link, MobileRightArrow, MobileLeftArrow } from "./styled";
-import { selectPage, nextPage, previousPage, firstPage, lastPage, selectTotalPages, contentType, selectContentType } from "../../common/Pagination/paginationSlice";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { selectPage, nextPage, previousPage, firstPage, lastPage, selectTotalPages, setPage } from "../../common/Pagination/paginationSlice";
 
 export const Pagination = () => {
    const dispatch = useDispatch();
-   const location = useLocation();
    const page = useSelector(selectPage);
    const totalPages = useSelector(selectTotalPages);
-   const currentContentType = useSelector(selectContentType);
-
-   useEffect(() => {
-      const newContentType = (location.pathname.includes("movies") && location.search === "") || (location.pathname === "/" )
-      ?
-      "movies"
-      :
-      location.pathname.includes("people") && location.search === ""
-         ?
-         "people"
-         :
-         location.pathname.includes("movies") && location.search !== ""
-            ?
-            "searchedMovies"
-            :
-            location.pathname.includes("people") && location.search !== ""
-               ?
-               "searchedPeople"
-               :
-               location.pathname.includes(`movies/`)
-                  ?
-                  "movie"
-                  :
-                  location.pathname.includes(`people/`)
-                     ?
-                     "person"
-                     :
-                     null
-
-
-      if (currentContentType !== newContentType) {
-         dispatch(contentType(newContentType));
-      }    
-
-   }, [location.pathname, location, dispatch, currentContentType]);
   
    return (
    <StyledPagination>
