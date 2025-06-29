@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { PersonItem } from "../../../common/PersonItem/index";
 import { Wrapper, Header, PeopleList } from "./styled";
-import { clear, selectPeople, selectPeopleStatus } from "../peopleSlice";
+import { clear, selectPeople, selectPeopleStatus, showPeople } from "../peopleSlice";
 import { Pagination } from "../../../common/Pagination";
 import { useQueryParameters, useReplaceQueryParameter } from "../../../common/Navigation/Search/queryParameters";
 import searchQueryParamName from "../../../common/Navigation/Search/searchQueryParamName";
@@ -17,7 +17,7 @@ export const PopularPeopleList = ({ searchTerm }) => {
    const page = useSelector(selectPage);
    const dispatch = useDispatch();
    const query = useQueryParameters(searchQueryParamName);
-   const setUrl = useReplaceQueryParameter();
+   const setPageOnUrl = useReplaceQueryParameter();
    const pageFromUrl = useQueryParameters("page");
 
    const fetchStatus = useSelector(state =>
@@ -35,13 +35,14 @@ export const PopularPeopleList = ({ searchTerm }) => {
 
       if (page !== pageFromUrlToNumber) {
          dispatch(setPage(pageFromUrlToNumber));
+         dispatch(showPeople());
       }
    }, [pageFromUrl, dispatch])
 
    useEffect(() => {
       window.scrollTo(0, 0);
       page > 1 &&
-         setUrl({
+         setPageOnUrl({
             key: "page",
             value: page,
          });
