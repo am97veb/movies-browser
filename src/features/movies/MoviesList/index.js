@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMovies, selectGenres, selectFetchMoviesStatus} from "../moviesSlice";
+import { selectMovies, selectGenres, selectFetchMoviesStatus, showMovies} from "../moviesSlice";
 import { MovieItem } from "../../../common/MovieItem";
 import { Pagination } from "../../../common/Pagination";
 import { MovieListWrapper, MovieListHeading, StyledMoviesList } from "./styled";
@@ -17,7 +17,7 @@ export const MoviesList = ({ searchTerm }) => {
   const sliceQuery = useSelector(selectQuery);
   const page = useSelector(selectPage);
   const dispatch = useDispatch();
-  const setUrl = useReplaceQueryParameter();
+  const setPageOnUrl = useReplaceQueryParameter();
   const query = useQueryParameters(searchQueryParamName);
   const pageFromUrl = useQueryParameters("page");
 
@@ -36,13 +36,14 @@ export const MoviesList = ({ searchTerm }) => {
 
     if (page !== pageFromUrlToNumber) {
       dispatch(setPage(pageFromUrlToNumber));
+      dispatch(showMovies());
     }
   }, [pageFromUrl, dispatch])
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    setUrl({
+    setPageOnUrl({
       key: "page",
       value: page > 1 ? page : null,
     });
